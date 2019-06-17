@@ -15,3 +15,9 @@ url:https://www.jianshu.com/p/31cf4da7da17
 
 windows server 2016在不激活的状态下添加我的电脑等图标
 win+r 然后 rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,0 复制这些。。
+
+windows server 2016 离线安装 .net3.5功能
+
+NetFx3.cab下载链接：https://pan.baidu.com/s/1O24nLgXhehHveae25p9SLg 密码：amgu
+点击“开始”找到“Windows PowerShell”右击“以管理员身份运行”，输入如下命令：
+dism.exe /online /add-package /packagepath:C:\WINDOWS\netfx3.caB
