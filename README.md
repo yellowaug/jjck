@@ -12,3 +12,6 @@ url:https://www.jianshu.com/p/31cf4da7da17
 解决方法：https://blog.csdn.net/vic0228/article/details/44759201
 
 在部署数据库的时候，要注意数据库的存放路径，主节点数据库的存放路径与辅助节点数据库的存放路径必须一致，否则会报错。
+
+windows server 2016在不激活的状态下添加我的电脑等图标
+win+r 然后 rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,0 复制这些。。
