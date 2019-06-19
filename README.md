@@ -3,8 +3,9 @@
 url:https://www.cnblogs.com/VolcanoCloud/p/4517310.html 应该不错
 
 WSFC服务下搭建windows server sql 故障转移集群
-
-url:https://www.jianshu.com/p/31cf4da7da17
+url:https://www.jianshu.com/p/31cf4da7da17 这篇文章AD域的搭建方法有问题，不适用SERVER2012以上的系统。
+Server AD域搭建
+https://blog.51cto.com/hcietea/2057003
 
 #SQL server集群
 
