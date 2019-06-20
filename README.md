@@ -22,3 +22,6 @@ windows server 2016 离线安装 .net3.5功能
 NetFx3.cab下载链接：https://pan.baidu.com/s/1O24nLgXhehHveae25p9SLg 密码：amgu
 点击“开始”找到“Windows PowerShell”右击“以管理员身份运行”，输入如下命令：
 dism.exe /online /add-package /packagepath:C:\WINDOWS\netfx3.caB
+
+AD域的一些基础知识
+url:https://zhuanlan.zhihu.com/p/45553448
