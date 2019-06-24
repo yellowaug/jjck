@@ -1,5 +1,5 @@
 # jjck
-# 《Entity Framework 6 Recipes》中文翻译系列 目录篇 -持续更新
+# 《Entity Framework 6 Recipes》中文翻译系列 目录篇 -持续更新(这个有点坑爹，第一部分就发现有些无法继续了。)
 url:https://www.cnblogs.com/VolcanoCloud/p/4517310.html 应该不错
 
 WSFC服务下搭建windows server sql 故障转移集群
@@ -25,3 +25,6 @@ dism.exe /online /add-package /packagepath:C:\WINDOWS\netfx3.caB
 
 AD域的一些基础知识
 url:https://zhuanlan.zhihu.com/p/45553448
+
+ASP.NET Web API系列教程目录
+url:https://www.cnblogs.com/r01cn/archive/2012/11/11/2765432.html
