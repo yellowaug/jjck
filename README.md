@@ -28,3 +28,6 @@ url:https://zhuanlan.zhihu.com/p/45553448
 
 ASP.NET Web API系列教程目录
 url:https://www.cnblogs.com/r01cn/archive/2012/11/11/2765432.html
+
+asp.net 权限控制：
+https://blog.csdn.net/qq_25042791/article/details/53695305
