@@ -1,7 +1,7 @@
 # jjck
 # 《Entity Framework 6 Recipes》中文翻译系列 目录篇 -持续更新(这个有点坑爹，第一部分就发现有些无法继续了。)
 url:https://www.cnblogs.com/VolcanoCloud/p/4517310.html 应该不错
-
+ef6官方教程：https://docs.microsoft.com/zh-cn/ef/ef6/querying
 WSFC服务下搭建windows server sql 故障转移集群
 url:https://www.jianshu.com/p/31cf4da7da17 这篇文章AD域的搭建方法有问题，不适用SERVER2012以上的系统。
 Server AD域搭建
