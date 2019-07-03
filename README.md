@@ -35,3 +35,7 @@ https://blog.csdn.net/qq_25042791/article/details/53695305
 微软APi:
 system.web.mvc api文档说明：https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.authorizeattribute?view=aspnet-mvc-5.2
 .net 4.8 api 文档说明：https://docs.microsoft.com/zh-cn/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.8
+
+asp.net mvc:
+先看看这个怎样--7 天玩转 ASP.NET MVC\n
+http://blog.oneapm.com/apm-tech/132.html
