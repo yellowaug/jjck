@@ -31,3 +31,7 @@ url:https://www.cnblogs.com/r01cn/archive/2012/11/11/2765432.html
 
 asp.net 权限控制：
 https://blog.csdn.net/qq_25042791/article/details/53695305
+
+微软APi:
+system.web.mvc api文档说明：https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.authorizeattribute?view=aspnet-mvc-5.2
+.net 4.8 api 文档说明：https://docs.microsoft.com/zh-cn/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.8
