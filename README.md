@@ -1,44 +1,10 @@
 # jjck
-# 《Entity Framework 6 Recipes》中文翻译系列 目录篇 -持续更新(这个有点坑爹，第一部分就发现有些无法继续了。)
+# 在JJck工作用到的技术栈
+电梯====================================
 
-url:https://www.cnblogs.com/VolcanoCloud/p/4517310.html 应该不错
-ef6官方教程：https://docs.microsoft.com/zh-cn/ef/ef6/querying
-WSFC服务下搭建windows server sql 故障转移集群
-url:https://www.jianshu.com/p/31cf4da7da17 这篇文章AD域的搭建方法有问题，不适用SERVER2012以上的系统。
-Server AD域搭建
-https://blog.51cto.com/hcietea/2057003
+1. .net用到的资料
+https://github.com/yellowaug/jjck/blob/master/.net%E7%94%A8%E5%88%B0%E7%9A%84%E8%B5%84%E6%96%99.txt
+2. 运维用到的资料
+https://github.com/yellowaug/jjck/blob/master/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8.txt
 
-#SQL server集群
 
-出现无法将数据库“test”联接到可用性副本“SQLNOTE1”上的可用性组“testHA”。 (Microsoft.SqlServer.Smo)的情况：
-解决方法：https://blog.csdn.net/vic0228/article/details/44759201
-
-在部署数据库的时候，要注意数据库的存放路径，主节点数据库的存放路径与辅助节点数据库的存放路径必须一致，否则会报错。
-
-windows server 2016在不激活的状态下添加我的电脑等图标
-win+r 然后 rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,0 复制这些。。
-
-windows server 2016 离线安装 .net3.5功能
-
-NetFx3.cab下载链接：https://pan.baidu.com/s/1O24nLgXhehHveae25p9SLg 密码：amgu
-点击“开始”找到“Windows PowerShell”右击“以管理员身份运行”，输入如下命令：
-dism.exe /online /add-package /packagepath:C:\WINDOWS\netfx3.caB
-
-AD域的一些基础知识
-url:https://zhuanlan.zhihu.com/p/45553448
-
-ASP.NET Web API系列教程目录
-url:https://www.cnblogs.com/r01cn/archive/2012/11/11/2765432.html
-
-asp.net 权限控制：
-https://blog.csdn.net/qq_25042791/article/details/53695305
-
-微软APi:
-system.web.mvc api文档说明：https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.authorizeattribute?view=aspnet-mvc-5.2
-.net 4.8 api 文档说明：https://docs.microsoft.com/zh-cn/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.8
-
-asp.net mvc:
-先看看这个怎样--7 天玩转 ASP.NET MVC\n
-http://blog.oneapm.com/apm-tech/132.html
-
-.net 爬虫框架：https://html-agility-pack.net/documentation
