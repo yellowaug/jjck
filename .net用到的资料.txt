@@ -1,0 +1,21 @@
+《Entity Framework 6 Recipes》中文翻译系列 目录篇 -持续更新(这个有点坑爹，第一部分就发现有些无法继续了。
+
+url:https://www.cnblogs.com/VolcanoCloud/p/4517310.html 应该不错
+
+ef6官方教程：https://docs.microsoft.com/zh-cn/ef/ef6/querying
+
+ASP.NET Web API系列教程目录
+url:https://www.cnblogs.com/r01cn/archive/2012/11/11/2765432.html
+
+asp.net 权限控制：
+https://blog.csdn.net/qq_25042791/article/details/53695305
+
+微软APi:
+system.web.mvc api文档说明：https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.authorizeattribute?view=aspnet-mvc-5.2
+.net 4.8 api 文档说明：https://docs.microsoft.com/zh-cn/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.8
+
+asp.net mvc:
+先看看这个怎样--7 天玩转 ASP.NET MVC\n
+http://blog.oneapm.com/apm-tech/132.html
+
+.net 爬虫框架：https://html-agility-pack.net/documentation
