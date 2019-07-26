@@ -19,3 +19,11 @@ asp.net mvc:
 http://blog.oneapm.com/apm-tech/132.html
 
 .net 爬虫框架：https://html-agility-pack.net/documentation
+
+树莓派开发
+树莓派安装在USB上以及安装工具
+https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+https://www.zhihu.com/question/25005120
+http://shumeipai.nxez.com/2018/05/16/dht11-temperature-and-humidity-sensor-raspberry-pi.html
+树莓派用到的python定时任务
+https://blog.51cto.com/huangyg/2367088
