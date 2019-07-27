@@ -21,6 +21,22 @@ dism.exe /online /add-package /packagepath:C:\WINDOWS\netfx3.caB
 AD域的一些基础知识
 url:https://zhuanlan.zhihu.com/p/45553448
 
+医技交流修改js请求地址：
+修改医技交流与服务端连接的IP
+文件位置:
+D:\WEBROOT\jj.gxjyy.com\Pad\js\component\common\gri-chat\js\gri.busClient.js
+程序位置：
+
+function BusClient(addr,param) {
+	console.log(1234);
+	console.log(addr);
+	addr="ws://10.12.2.13:9000/Bus"; //此处做修改。
+    var websocket;
+    var subscribeArr = new Array();
+    var statusEnum = { close: "close", open: "open" };
+    var status = statusEnum.open;
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 linux
 

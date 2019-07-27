@@ -1,0 +1,40 @@
+在MVC项目下添加API路由，也就是MVC和WEB API混写在一个项目下的方法
+在项目目录下的Global.asax文件下，添加WebApiConfig文件的委托。具体细节如下
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register); ##这个就是WEB API的路由注册，添加后才能访问/api/action这个样式的路径
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+    }
+如果没有WebApiConfig.cs这个文件可以复制一下内容
+=================================================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+
+namespace JJCKManager #自己注意修改命名空间
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+    }
+}
+=================================================================
+
+.net mvc CURD常用写法
+=================================================================
