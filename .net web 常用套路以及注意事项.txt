@@ -38,3 +38,71 @@ namespace JJCKManager #自己注意修改命名空间
 
 .net mvc CURD常用写法
 =================================================================
+
+=================================================================
+
+.net mvc 登录验证常用写法
+=================================================================
+Web.config的设置、
+要在system.web这个子项添加authentication
+  <system.web>
+    <authentication mode="Forms">
+      <forms loginUrl="~/LoginSys/LoginIndex"></forms> ~/控制器名称/方法名称
+    </authentication>
+    <compilation debug="true" targetFramework="4.6.1" />
+    <httpRuntime targetFramework="4.6.1" />
+  </system.web>
+数据访问层
+    public interface IcheckUser
+    {
+        bool Isaccountuser(Account account);
+    }
+  public class GetLoginUser : IcheckUser
+    {
+        public bool Isaccountuser(Account account)
+        {
+            using(JJCKManagerContext jjckdb=new JJCKManagerContext())
+            {
+                var chkresult = from username in jjckdb.Accounts
+                                where username.UserName == account.UserName
+                                where username.PassWord==account.PassWord
+                                select username;                
+                if (chkresult.ToList().Count() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }return false;
+                }
+
+                 
+            }
+        }
+    }
+    控制层
+    [HttpPost]
+    public ActionResult LoginIndex(Account loginacc)
+    {
+        IcheckUser checkacc = new GetLoginUser();
+        //var userName=checkacc.accountuser(loginacc);
+        if (!checkacc.Isaccountuser(loginacc))
+        {
+            ModelState.AddModelError("CredentialError", "Invalid Username or Password");
+            return RedirectToAction("LoginIndex");
+        }
+        else
+        {
+            FormsAuthentication.SetAuthCookie(loginacc.UserName, false); //这个方法是固定写法，设置cookie
+            return RedirectToAction("Index", "Home");
+        }
+            
+    }
+
+    登出的方法：
+    public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return View("LoginIndex");
+        }
