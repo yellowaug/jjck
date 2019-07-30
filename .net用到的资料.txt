@@ -20,6 +20,9 @@ http://blog.oneapm.com/apm-tech/132.html
 
 .net 爬虫框架：https://html-agility-pack.net/documentation
 
+.net api 汇总
+https://docs.microsoft.com/zh-cn/dotnet/api/?view=aspnet-mvc-5.2
+
 树莓派开发
 树莓派安装在USB上以及安装工具
 https://www.raspberrypi.org/documentation/installation/installing-images/README.md

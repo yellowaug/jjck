@@ -40,6 +40,44 @@ namespace JJCKManager #自己注意修改命名空间
 =================================================================
 
 =================================================================
+Add方法：
+public interface IAddVmAcc
+{
+    void AddVmAcc(VMHostAccount vmhostacc);
+}
+public class AddData：IAddVmAcc{
+void IAddVmAcc.AddVmAcc(VMHostAccount vmhostacc) //这个接口是显示实现的，关注业务流程就好
+{
+    using(JJCKManagerContext jjckdb = new JJCKManagerContext())
+    {
+        jjckdb.HostAccounts.Add(vmhostacc);
+        jjckdb.SaveChanges();
+    }
+}
+}
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult AddVmAccount(VMHostAccount vMHost) //判断模型是否有效，有效就完成功能，无效就返回异常
+{
+    try
+    {
+        if (ModelState.IsValid)
+        {
+            IAddVmAcc addVmAcc = new AddData();
+            addVmAcc.AddVmAcc(vMHost);
+            return RedirectToAction("Index");
+        }
+    }
+    catch (DataException exc)
+    {
+        ModelState.AddModelError("", exc);
+        
+    }
+    return View();
+}
+=================================================================
+
+=================================================================
 
 .net mvc 登录验证常用写法
 =================================================================
@@ -106,3 +144,47 @@ Web.config的设置、
             FormsAuthentication.SignOut();
             return View("LoginIndex");
         }
+在razor下实现选择日期的前后端代码
+后端代码，在数据库属性字段中用如下写法
+        [Display(Name ="创建时间")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime CreateTime { get; set; }
+前端代码用IDE生成的即可
+
+实现下拉标签的前后端写法实现
+后端，在控制层代码中写法如下
+ public class WebAccountController : Controller
+    {
+        JJCKManagerContext jjckdb = new JJCKManagerContext();
+        // GET: WebAccount
+        public ActionResult Index()
+        {
+            .......
+        }
+        public ActionResult AddWebAcc()
+        {
+            //ViewData用法详解，
+            “CreateUser”是表示要创建的选择的属性字段，这个就是你是打算用哪个字段做成下拉列表的形式就是哪个字段
+            jjckdb.Accounts 表示要哪个表提供数据，
+            “Uid”,"UserName" 提供数据是哪个字段。
+            ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddWebAcc(WebManagerAccount webacc)
+        {
+            //ViewData["CreateUser"] = new SelectList(webaccdb.AccountUser, "Uid", "UserNmae", webacc.CreateUser);
+            ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", webacc.CreateUser);
+            *****;
+        }
+    }
+前端的写法 
+"CreateUser"的意思和后端表示的意思是一般的
+  <div class="form-group">
+            @Html.LabelFor(model => model.CreateUser, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @* @Html.EditorFor(model => model.CreateUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("CreateUser",ViewData["CreateUser"]as SelectList,"请选择",new { @class = "form-control"  })
+                @*@Html.ValidationMessageFor(model => model.CreateUser, "", new { @class = "text-danger" })*@
