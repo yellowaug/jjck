@@ -1,0 +1,47 @@
+﻿@model IEnumerable<JJCKManager.Models.Account>
+
+@{
+    ViewBag.Title = "账号列表";
+}
+
+
+<h2>账号列表</h2>
+现在登录的账号是：
+@ViewBag.loginname
+<p>
+    @Html.ActionLink("添加新账号", "AddAcc")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Createdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Createdate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Uid }) |
+            @Html.ActionLink("Details", "AccDetalis", new { id=item.Uid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Uid })
+        </td>
+    </tr>
+}
+
+</table>

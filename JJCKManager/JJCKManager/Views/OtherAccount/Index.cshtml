@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JJCKManager.Models.OtherAccount>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherAccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creater)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherAccountName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creater)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OAccID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OAccID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OAccID })
+        </td>
+    </tr>
+}
+
+</table>

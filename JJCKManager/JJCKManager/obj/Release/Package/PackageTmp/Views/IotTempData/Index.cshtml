@@ -1,0 +1,55 @@
+﻿@model IEnumerable<JJCKManager.Models.IotTemperListFunction>
+
+@{
+    ViewBag.Title = "工厂温度";
+}
+
+<h2>工厂温度</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.humidity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IotDevIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuncName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updatadate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.humidity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IotDevIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuncName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updatadate)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DevID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DevID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DevID })
+        </td>*@
+    </tr>
+}
+
+</table>
