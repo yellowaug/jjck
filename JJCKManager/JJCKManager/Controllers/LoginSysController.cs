@@ -23,8 +23,6 @@ namespace JJCKManager.Controllers
             //var userName=checkacc.accountuser(loginacc);
             if (!checkacc.Isaccountuser(loginacc))
             {
-                
-                    
                 ModelState.AddModelError("CredentialError", "Invalid Username or Password");
                 return RedirectToAction("LoginIndex");
             }

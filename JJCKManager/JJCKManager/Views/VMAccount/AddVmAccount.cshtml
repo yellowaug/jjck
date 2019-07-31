@@ -1,18 +1,15 @@
 ﻿@model JJCKManager.Models.VMHostAccount
 
 @{
-    ViewBag.Title = "AddVmAccount";
+    ViewBag.Title = "新建虚拟机账号";
 }
-
-<h2>AddVmAccount</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>VMHostAccount</h4>
+        <h2>新建虚拟机账号</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -50,8 +47,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CreateUser, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateUser, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreateUser, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.CreateUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateUser, "", new { @class = "text-danger" })*@
+                @Html.DropDownList("CreateUser", ViewData["CreateUser"] as SelectList, "请选择", new { @class = "form-control" })
             </div>
         </div>
 

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using JJCKManager.DAL;
 using JJCKManager.BAL;
 using JJCKManager.Models;
+using System.Data;
 
 namespace JJCKManager.Controllers
 {
@@ -30,10 +31,24 @@ namespace JJCKManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddWebAcc(WebManagerAccount webacc)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", webacc.CreateUser);
+                    IAddWebAcc addWebAcc = new AddData();
+                    addWebAcc.AddAccInfo(webacc);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException dataexc)
+            {
+
+                ModelState.AddModelError("", dataexc);
+            }
             //ViewData["CreateUser"] = new SelectList(webaccdb.AccountUser, "Uid", "UserNmae", webacc.CreateUser);
-            ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", webacc.CreateUser);
-            IAddWebAcc addWebAcc = new AddData();
-            addWebAcc.AddAccInfo(webacc);
+
+            
             return View(webacc);
         }
     }

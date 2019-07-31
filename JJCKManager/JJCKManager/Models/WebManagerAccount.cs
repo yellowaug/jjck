@@ -28,7 +28,8 @@ namespace JJCKManager.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreateTime { get; set; }
-        [Display(Name ="创建人")]
+        [Display(Name = "创建人")]
+        [ForeignKey("AccountUser")]
         public int CreateUser { get; set; }
         public virtual Account AccountUser { get; set; }
     }

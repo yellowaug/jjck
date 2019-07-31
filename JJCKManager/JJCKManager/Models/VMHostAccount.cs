@@ -23,9 +23,12 @@ namespace JJCKManager.Models
         public string VMLoginPassWord { get; set; }
         [Required(ErrorMessage = "虚拟机账号创建时间不允许为空")]
         [Display(Name = "录入时间")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime VMCreateTime { get; set; }
         [Display(Name = "录入人")]
-        public string CreateUser { get; set; }
+        [ForeignKey("acc")]
+        public int CreateUser { get; set; }
         [Display(Name = "VM账号信息描述")]
         public string VmAccountDesc { get; set; }
         public Account acc { get; set; }

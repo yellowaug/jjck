@@ -19,6 +19,7 @@ namespace JJCKManager.BAL
     public interface IcheckUser
     {
         bool Isaccountuser(Account account);
+        //bool IsSuperMan(Account account);
     }
     public interface IwebAccList //获取WEB账号信息
     {
@@ -98,16 +99,27 @@ namespace JJCKManager.BAL
                 {
                     return true;
                 }
+                else if (account.UserName == "Admin" && account.PassWord == "jjck@123")
+                {
+                    return true;
+                }
                 else
                 {
                     return false;
-                }
-              
-                
-
-
-                 
+                }                                            
             }
         }
+
+        //bool IcheckUser.IsSuperMan(Account account)
+        //{
+        //    if (account.UserName=="Admin"&&account.PassWord=="jjck@123")
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

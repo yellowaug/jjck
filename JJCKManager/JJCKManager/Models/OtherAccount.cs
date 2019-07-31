@@ -22,7 +22,9 @@ namespace JJCKManager.Models
         public string PassWord { get; set; }
         [Display(Name = "账号用途")]
         public string AccountDesc { get; set; }
-        public string Creater { get; set; }
+        [Display(Name ="创建人")]
+        [ForeignKey("accountUser")]
+        public int Creater { get; set; }
         public Account accountUser { get; set; }
     }
 }
