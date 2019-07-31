@@ -224,7 +224,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SystemAccount\Index.cshtml" />
     <Content Include="Views\SystemAccount\AddAcc.cshtml" />
-    <Content Include="Views\SystemAccount\AccDetalis.cshtml" />
     <Content Include="Views\IotTempData\Index.cshtml" />
     <Content Include="Views\LoginSys\LoginIndex.cshtml" />
     <Content Include="Views\WebAccount\AddWebAcc.cshtml" />
@@ -233,6 +232,7 @@
     <Content Include="Views\VMAccount\AddVmAccount.cshtml" />
     <Content Include="Views\OtherAccount\Index.cshtml" />
     <Content Include="Views\OtherAccount\AddOthAcc.cshtml" />
+    <Content Include="Views\SystemAccount\UpSysacc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

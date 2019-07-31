@@ -7,6 +7,7 @@ using JJCKManager.Models;
 using JJCKManager.BAL;
 using System.Data;
 using JJCKManager.DAL;
+using System.Net;
 
 namespace JJCKManager.Controllers
 {
@@ -47,16 +48,54 @@ namespace JJCKManager.Controllers
            
             return View(account);
         }
-        [HttpPut]
-        public ActionResult AccDetalis(int? id)
+        //[HttpPut]
+        public ActionResult UpSysacc(int? id)
         {
-            using(var db=new JJCKManagerContext())
+            if (id == null)
             {
-                var result = db.Accounts.Find(id);
-               
-                return View(result);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            IupAccount upsysacc = new UpToTableData();
+
+            var sysaccres = upsysacc.UptableSysAcc(id);
+            if ( sysaccres== null)
+            {
+                return HttpNotFound();
+            }
+            return View(sysaccres);
+
+        }
+        [HttpPost]
+        [ActionName("UpSysacc")]
+        [ValidateAntiForgeryToken]
+        public ActionResult PutUsSysacc(int? id,Account account)
+        {
+            JJCKManagerContext jjckdb = new JJCKManagerContext();
             
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupAccount upsysacc = new UpToTableData();
+            var sysaccres = upsysacc.UptableSysAcc(id);
+            if (TryUpdateModel(sysaccres, "",
+               new string[] { "UserName", "PassWord", "Createdate" }))
+            {
+                try
+                {
+                    jjckdb.Entry(account).State= System.Data.Entity.EntityState.Modified;
+                    jjckdb.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (DataException dex/* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", dex);
+                }
+            }
+            return View(sysaccres);
+
         }
 
     }
