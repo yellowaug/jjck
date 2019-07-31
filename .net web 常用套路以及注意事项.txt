@@ -38,9 +38,8 @@ namespace JJCKManager #自己注意修改命名空间
 
 .net mvc CURD常用写法
 =================================================================
-
-=================================================================
 Add方法：
+=================================================================
 public interface IAddVmAcc
 {
     void AddVmAcc(VMHostAccount vmhostacc);
@@ -76,7 +75,29 @@ public ActionResult AddVmAccount(VMHostAccount vMHost) //判断模型是否有�
     return View();
 }
 =================================================================
+查询方法：以接口的形式实现
+=================================================================
 
+    public interface IVmAccList
+    {
+        List<VMHostAccount> GetAllVmAcc();
+    }
+   public class GetAccountList : IVmAccList
+    {
+        public List<Account> GetAllAccount()
+        {
+            using (JJCKManagerContext jjckdb = new JJCKManagerContext())
+            {
+                return jjckdb.Accounts.ToList();
+            }
+        }
+    }
+    public ActionResult Index()
+    {
+        IVmAccList vmaccList = new GetAccountList();
+        var acclist=vmaccList.GetAllVmAcc();
+        return View(acclist);
+    }
 =================================================================
 
 .net mvc 登录验证常用写法
@@ -144,6 +165,7 @@ Web.config的设置、
             FormsAuthentication.SignOut();
             return View("LoginIndex");
         }
+===================================================================================================================
 在razor下实现选择日期的前后端代码
 后端代码，在数据库属性字段中用如下写法
         [Display(Name ="创建时间")]
@@ -151,7 +173,7 @@ Web.config的设置、
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreateTime { get; set; }
 前端代码用IDE生成的即可
-
+===================================================================================================================
 实现下拉标签的前后端写法实现
 后端，在控制层代码中写法如下
  public class WebAccountController : Controller
