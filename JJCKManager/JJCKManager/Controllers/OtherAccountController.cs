@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using JJCKManager.BAL;
@@ -26,6 +27,7 @@ namespace JJCKManager.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddOthAcc(OtherAccount otherAccount)
         {
             try
@@ -46,5 +48,54 @@ namespace JJCKManager.Controllers
 
             return View();
         }
+        public ActionResult UpOthacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupOthAccount upothAcc = new UpToTableData();
+            var othaccs = upothAcc.UptableOthAcc(id);
+            ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
+            if (othaccs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(othaccs);
+
+        }
+        [HttpPost]
+        [ActionName("UpOthacc")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Putothacc(int? id, OtherAccount otherAccount)
+        {
+            JJCKManagerContext jjckdb = new JJCKManagerContext();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupOthAccount upothAcc = new UpToTableData();
+            var othaccs = upothAcc.UptableOthAcc(id);
+            if (TryUpdateModel(othaccs, "",
+               new string[] { "OtherAccountName", "PassWord", "AccountDesc", "Creater" }))
+            {
+                try
+                {
+                    ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", otherAccount.Creater);
+                    jjckdb.Entry(otherAccount).State = System.Data.Entity.EntityState.Modified;
+                    jjckdb.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (DataException dex/* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", dex);
+                }
+            }
+            return View(upothAcc);
+
+        }
+
     }
 }

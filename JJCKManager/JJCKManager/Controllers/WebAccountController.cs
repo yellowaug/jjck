@@ -7,6 +7,7 @@ using JJCKManager.DAL;
 using JJCKManager.BAL;
 using JJCKManager.Models;
 using System.Data;
+using System.Net;
 
 namespace JJCKManager.Controllers
 {
@@ -50,6 +51,54 @@ namespace JJCKManager.Controllers
 
             
             return View(webacc);
+        }
+        public ActionResult UpWebacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupWebAccount upwebAcc = new UpToTableData();
+            var webaccs = upwebAcc.UptableWebAcc(id);
+            ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
+            if (webaccs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(webaccs);
+
+        }
+        [HttpPost]
+        [ActionName("UpWebacc")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Putwebacc(int? id, WebManagerAccount managerAccount)
+        {
+            JJCKManagerContext jjckdb = new JJCKManagerContext();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupWebAccount upwebAcc = new UpToTableData();
+            var webaccs = upwebAcc.UptableWebAcc(id);
+            if (TryUpdateModel(webaccs, "",
+               new string[] { "AccountName", "AccountPassWord", "WebUrlORIPaddress", "WebAccountDesc", "CreateTime", "CreateUser" }))
+            {
+                try
+                {
+                    ViewData["CreateUser"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", managerAccount.CreateUser);
+                    jjckdb.Entry(managerAccount).State = System.Data.Entity.EntityState.Modified;
+                    jjckdb.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (DataException dex/* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", dex);
+                }
+            }
+            return View(webaccs);
+
         }
     }
 }

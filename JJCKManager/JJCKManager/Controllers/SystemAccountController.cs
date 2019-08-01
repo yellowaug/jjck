@@ -85,7 +85,6 @@ namespace JJCKManager.Controllers
                 {
                     jjckdb.Entry(account).State= System.Data.Entity.EntityState.Modified;
                     jjckdb.SaveChanges();
-
                     return RedirectToAction("Index");
                 }
                 catch (DataException dex/* dex */)

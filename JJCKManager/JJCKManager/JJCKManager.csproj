@@ -233,6 +233,9 @@
     <Content Include="Views\OtherAccount\Index.cshtml" />
     <Content Include="Views\OtherAccount\AddOthAcc.cshtml" />
     <Content Include="Views\SystemAccount\UpSysacc.cshtml" />
+    <Content Include="Views\OtherAccount\UpOthacc.cshtml" />
+    <Content Include="Views\VMAccount\UpVMacc.cshtml" />
+    <Content Include="Views\WebAccount\UpWebacc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
