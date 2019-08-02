@@ -186,14 +186,9 @@ E:\jjck\JJCKManager\JJCKManager\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\jjck\JJCKManager\JJCKManager\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\jjck\JJCKManager\JJCKManager\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csprojAssemblyReference.cache
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.InitialCreate.resources
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.updataiottemptable.resources
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.changercum.resources
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.GenerateResource.cache
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.CoreCompileInputs.cache
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.CopyComplete
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.dll
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.pdb
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.changetablewebacc.resources
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.changetableforeigenKey.resources
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.changetableforeigenKey1.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.backup.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.GenerateResource.cache

@@ -154,29 +154,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907230835480_InitialCreate.cs" />
-    <Compile Include="Migrations\201907230835480_InitialCreate.Designer.cs">
-      <DependentUpon>201907230835480_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907240253531_updataiottemptable.cs" />
-    <Compile Include="Migrations\201907240253531_updataiottemptable.Designer.cs">
-      <DependentUpon>201907240253531_updataiottemptable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907240310039_changercum.cs" />
-    <Compile Include="Migrations\201907240310039_changercum.Designer.cs">
-      <DependentUpon>201907240310039_changercum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310245387_changetablewebacc.cs" />
-    <Compile Include="Migrations\201907310245387_changetablewebacc.Designer.cs">
-      <DependentUpon>201907310245387_changetablewebacc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310444436_changetableforeigenKey.cs" />
-    <Compile Include="Migrations\201907310444436_changetableforeigenKey.Designer.cs">
-      <DependentUpon>201907310444436_changetableforeigenKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310606033_changetableforeigenKey1.cs" />
-    <Compile Include="Migrations\201907310606033_changetableforeigenKey1.Designer.cs">
-      <DependentUpon>201907310606033_changetableforeigenKey1.cs</DependentUpon>
+    <Compile Include="Migrations\201908020203197_backup.cs" />
+    <Compile Include="Migrations\201908020203197_backup.Designer.cs">
+      <DependentUpon>201908020203197_backup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -257,23 +237,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907230835480_InitialCreate.resx">
-      <DependentUpon>201907230835480_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907240253531_updataiottemptable.resx">
-      <DependentUpon>201907240253531_updataiottemptable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907240310039_changercum.resx">
-      <DependentUpon>201907240310039_changercum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310245387_changetablewebacc.resx">
-      <DependentUpon>201907310245387_changetablewebacc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310444436_changetableforeigenKey.resx">
-      <DependentUpon>201907310444436_changetableforeigenKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310606033_changetableforeigenKey1.resx">
-      <DependentUpon>201907310606033_changetableforeigenKey1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020203197_backup.resx">
+      <DependentUpon>201908020203197_backup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@ namespace JJCKManager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class backup : DbMigration
     {
         public override void Up()
         {
@@ -27,19 +27,23 @@ namespace JJCKManager.Migrations
                         VMLoginIp = c.String(nullable: false),
                         VMLoginPassWord = c.String(nullable: false),
                         VMCreateTime = c.DateTime(nullable: false),
-                        CreateUser = c.String(),
+                        CreateUser = c.Int(nullable: false),
                         VmAccountDesc = c.String(),
-                        acc_Uid = c.Int(),
                     })
                 .PrimaryKey(t => t.VmhostId)
-                .ForeignKey("JJCK.Account", t => t.acc_Uid)
-                .Index(t => t.acc_Uid);
+                .ForeignKey("JJCK.Account", t => t.CreateUser, cascadeDelete: true)
+                .Index(t => t.CreateUser);
             
             CreateTable(
                 "JJCKIot.TempFunction",
                 c => new
                     {
                         DevID = c.Int(nullable: false, identity: true),
+                        Temperature = c.String(),
+                        humidity = c.String(),
+                        IotDevIP = c.String(),
+                        FuncName = c.String(),
+                        Updatadate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.DevID);
             
@@ -54,11 +58,10 @@ namespace JJCKManager.Migrations
                         WebAccountDesc = c.String(nullable: false),
                         CreateTime = c.DateTime(nullable: false),
                         CreateUser = c.Int(nullable: false),
-                        AccountUser_Uid = c.Int(),
                     })
                 .PrimaryKey(t => t.WaID)
-                .ForeignKey("JJCK.Account", t => t.AccountUser_Uid)
-                .Index(t => t.AccountUser_Uid);
+                .ForeignKey("JJCK.Account", t => t.CreateUser, cascadeDelete: true)
+                .Index(t => t.CreateUser);
             
             CreateTable(
                 "JJCK.OtherAccountName",
@@ -68,23 +71,22 @@ namespace JJCKManager.Migrations
                         OtherAccountName = c.String(nullable: false, maxLength: 20),
                         PassWord = c.String(nullable: false),
                         AccountDesc = c.String(),
-                        Creater = c.String(),
-                        accountUser_Uid = c.Int(),
+                        Creater = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.OAccID)
-                .ForeignKey("JJCK.Account", t => t.accountUser_Uid)
-                .Index(t => t.accountUser_Uid);
+                .ForeignKey("JJCK.Account", t => t.Creater, cascadeDelete: true)
+                .Index(t => t.Creater);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("JJCK.OtherAccountName", "accountUser_Uid", "JJCK.Account");
-            DropForeignKey("JJCK.WebManagerAccount", "AccountUser_Uid", "JJCK.Account");
-            DropForeignKey("JJCK.VmHostAccount", "acc_Uid", "JJCK.Account");
-            DropIndex("JJCK.OtherAccountName", new[] { "accountUser_Uid" });
-            DropIndex("JJCK.WebManagerAccount", new[] { "AccountUser_Uid" });
-            DropIndex("JJCK.VmHostAccount", new[] { "acc_Uid" });
+            DropForeignKey("JJCK.OtherAccountName", "Creater", "JJCK.Account");
+            DropForeignKey("JJCK.WebManagerAccount", "CreateUser", "JJCK.Account");
+            DropForeignKey("JJCK.VmHostAccount", "CreateUser", "JJCK.Account");
+            DropIndex("JJCK.OtherAccountName", new[] { "Creater" });
+            DropIndex("JJCK.WebManagerAccount", new[] { "CreateUser" });
+            DropIndex("JJCK.VmHostAccount", new[] { "CreateUser" });
             DropTable("JJCK.OtherAccountName");
             DropTable("JJCK.WebManagerAccount");
             DropTable("JJCKIot.TempFunction");

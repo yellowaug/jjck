@@ -7,13 +7,13 @@ namespace JJCKManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changercum : IMigrationMetadata
+    public sealed partial class delfkdatastatus : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changercum));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(delfkdatastatus));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907240310039_changercum"; }
+            get { return "201908010846183_delfkdatastatus"; }
         }
         
         string IMigrationMetadata.Source

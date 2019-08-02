@@ -275,3 +275,8 @@ Web.config的设置、
                @* @Html.EditorFor(model => model.CreateUser, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownList("CreateUser",ViewData["CreateUser"]as SelectList,"请选择",new { @class = "form-control"  })
                 @*@Html.ValidationMessageFor(model => model.CreateUser, "", new { @class = "text-danger" })*@
+===================================================================================================================
+文件上传写法
+===================================================================================================================
+https://docs.microsoft.com/zh-cn/aspnet/web-pages/overview/data/working-with-files
+明天实现

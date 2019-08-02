@@ -7,13 +7,13 @@ namespace JJCKManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changetablewebacc : IMigrationMetadata
+    public sealed partial class backup : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changetablewebacc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(backup));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907310245387_changetablewebacc"; }
+            get { return "201908020203197_backup"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,13 +7,13 @@ namespace JJCKManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changetableforeigenKey1 : IMigrationMetadata
+    public sealed partial class tablestatus : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changetableforeigenKey1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tablestatus));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907310606033_changetableforeigenKey1"; }
+            get { return "201908010825079_tablestatus"; }
         }
         
         string IMigrationMetadata.Source
