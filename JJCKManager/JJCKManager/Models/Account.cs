@@ -25,6 +25,8 @@ namespace JJCKManager.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode =true)]
         public DateTime Createdate { get; set; }
+        public int ?DaId { get; set; }
+        public virtual Datastatus Datastatus { get; set; }
 
     }
 }

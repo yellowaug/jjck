@@ -32,5 +32,7 @@ namespace JJCKManager.Models
         [ForeignKey("AccountUser")]
         public int CreateUser { get; set; }
         public virtual Account AccountUser { get; set; }
+        public int? DaId { get; set; }
+        public virtual Datastatus Datastatus { get; set; }
     }
 }

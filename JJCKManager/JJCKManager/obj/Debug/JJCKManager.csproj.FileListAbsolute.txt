@@ -190,5 +190,8 @@ E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.CoreCompileInputs.c
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.CopyComplete
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.dll
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.pdb
-E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.backup.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.test1.resources
 E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.GenerateResource.cache
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.testfk2.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.testfk3.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.testfk4.resources

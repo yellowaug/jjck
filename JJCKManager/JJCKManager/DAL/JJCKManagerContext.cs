@@ -25,6 +25,7 @@
         public DbSet<OtherAccount> OtherAccounts { get; set; }
         public DbSet<VMHostAccount> HostAccounts { get; set; }
         public DbSet<WebManagerAccount> ManagerAccounts { get; set; }
+        public DbSet<Datastatus> Dastatuses { get; set; }
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
     }
 

@@ -32,5 +32,7 @@ namespace JJCKManager.Models
         [Display(Name = "VM账号信息描述")]
         public string VmAccountDesc { get; set; }
         public Account acc { get; set; }
+        public int? DaId { get; set; }
+        public virtual Datastatus Datastatus { get; set; }
     }
 }

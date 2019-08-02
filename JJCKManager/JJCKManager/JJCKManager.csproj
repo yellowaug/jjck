@@ -140,6 +140,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BAL\AddData.cs" />
     <Compile Include="BAL\DeleteData.cs" />
+    <Compile Include="BAL\EnumCode.cs" />
     <Compile Include="BAL\GetData.cs" />
     <Compile Include="BAL\UpToData.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -154,12 +155,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908020203197_backup.cs" />
-    <Compile Include="Migrations\201908020203197_backup.Designer.cs">
-      <DependentUpon>201908020203197_backup.cs</DependentUpon>
+    <Compile Include="Migrations\201908020400215_test1.cs" />
+    <Compile Include="Migrations\201908020400215_test1.Designer.cs">
+      <DependentUpon>201908020400215_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020555490_testfk2.cs" />
+    <Compile Include="Migrations\201908020555490_testfk2.Designer.cs">
+      <DependentUpon>201908020555490_testfk2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020642433_testfk3.cs" />
+    <Compile Include="Migrations\201908020642433_testfk3.Designer.cs">
+      <DependentUpon>201908020642433_testfk3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908020649239_testfk4.cs" />
+    <Compile Include="Migrations\201908020649239_testfk4.Designer.cs">
+      <DependentUpon>201908020649239_testfk4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\DataStatus.cs" />
     <Compile Include="Models\IotTemperListFunction.cs" />
     <Compile Include="Models\OtherAccount.cs" />
     <Compile Include="Models\VMHostAccount.cs" />
@@ -216,6 +230,7 @@
     <Content Include="Views\OtherAccount\UpOthacc.cshtml" />
     <Content Include="Views\VMAccount\UpVMacc.cshtml" />
     <Content Include="Views\WebAccount\UpWebacc.cshtml" />
+    <Content Include="Views\OtherAccount\Delacc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,8 +252,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908020203197_backup.resx">
-      <DependentUpon>201908020203197_backup.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020400215_test1.resx">
+      <DependentUpon>201908020400215_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020555490_testfk2.resx">
+      <DependentUpon>201908020555490_testfk2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020642433_testfk3.resx">
+      <DependentUpon>201908020642433_testfk3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908020649239_testfk4.resx">
+      <DependentUpon>201908020649239_testfk4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@ namespace JJCKManager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class backup : DbMigration
+    public partial class test1 : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,15 @@ namespace JJCKManager.Migrations
                         Createdate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Uid);
+            
+            CreateTable(
+                "JJCK.Datastatus",
+                c => new
+                    {
+                        DaId = c.Int(nullable: false, identity: true),
+                        StatusDesc = c.String(maxLength: 50),
+                    })
+                .PrimaryKey(t => t.DaId);
             
             CreateTable(
                 "JJCK.VmHostAccount",
@@ -91,6 +100,7 @@ namespace JJCKManager.Migrations
             DropTable("JJCK.WebManagerAccount");
             DropTable("JJCKIot.TempFunction");
             DropTable("JJCK.VmHostAccount");
+            DropTable("JJCK.Datastatus");
             DropTable("JJCK.Account");
         }
     }

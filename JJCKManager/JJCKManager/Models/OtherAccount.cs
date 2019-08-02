@@ -26,5 +26,8 @@ namespace JJCKManager.Models
         [ForeignKey("accountUser")]
         public int Creater { get; set; }
         public Account accountUser { get; set; }
+        [Display(Name ="是否删除")]
+        public int DaId { get; set; }
+        public virtual Datastatus Datastatus { get; set; }
     }
 }

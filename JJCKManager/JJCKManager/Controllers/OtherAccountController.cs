@@ -18,12 +18,15 @@ namespace JJCKManager.Controllers
         // GET: OtherAccount
         public ActionResult Index()
         {
-            IOthAccList othAccList = new GetAccountList();
-            return View(othAccList.GetAllOthAcc());
+            IAlivedothList alivedothList = new GetAccountList();
+            //IOthAccList othAccList = new GetAccountList();
+
+            return View(alivedothList.GetOtherAccountsalived());
         }
         public ActionResult AddOthAcc()
         {
             ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
+            
             return View();
         }
         [HttpPost]
@@ -35,6 +38,7 @@ namespace JJCKManager.Controllers
                 if (ModelState.IsValid)
                 {
                     ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName",otherAccount.Creater);
+                   
                     IAddOtrherAcc addOtrherAcc = new AddData();
                     addOtrherAcc.AddOtAcc(otherAccount);
                     return RedirectToAction("Index");
@@ -78,11 +82,11 @@ namespace JJCKManager.Controllers
             IupOthAccount upothAcc = new UpToTableData();
             var othaccs = upothAcc.UptableOthAcc(id);
             if (TryUpdateModel(othaccs, "",
-               new string[] { "OtherAccountName", "PassWord", "AccountDesc", "Creater" }))
+               new string[] { "OtherAccountName", "PassWord", "AccountDesc", "Creater", "DaId" }))
             {
                 try
                 {
-                    ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", otherAccount.Creater);
+                    ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName", otherAccount.Creater);                    
                     jjckdb.Entry(otherAccount).State = System.Data.Entity.EntityState.Modified;
                     jjckdb.SaveChanges();
                     return RedirectToAction("Index");
@@ -94,8 +98,51 @@ namespace JJCKManager.Controllers
                 }
             }
             return View(upothAcc);
+        }
+        public ActionResult Delacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupOthAccount upothAcc = new UpToTableData();
+            var othaccs = upothAcc.UptableOthAcc(id);
+            ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
+            if (othaccs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(othaccs);
+        }
 
+        [HttpPost]
+        [ActionName("Delacc")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DelectOthacc(int? id)//软删除
+        {
+            JJCKManagerContext jjckdb = new JJCKManagerContext();
+            if (id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupOthAccount upothAcc = new UpToTableData();
+            //var othaccs = upothAcc.UptableOthAcc(id);
+            var othaccs = jjckdb.OtherAccounts.Find(id);
+            if (othaccs != null)
+            {
+                othaccs.DaId = (int)EuDataStatus.isdelete; 
+                jjckdb.SaveChanges();
+            }
+            //if (othaccs != null)
+            //{
+            //    othaccs.DaId = 1;
+                
+            //    jjckdb.SaveChanges();
+            //}
+            
+            return RedirectToAction("Index");
         }
 
     }
+
 }

@@ -10,7 +10,6 @@ namespace JJCKManager.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "JJCKManager.DAL.JJCKManagerContext";
         }
 
         protected override void Seed(JJCKManager.DAL.JJCKManagerContext context)

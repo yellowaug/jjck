@@ -33,8 +33,12 @@ namespace JJCKManager.BAL
     {
         List<VMHostAccount> GetAllVmAcc();
     } //获取其他账号信息
+    public interface IAlivedothList
+    {
+        List<OtherAccount> GetOtherAccountsalived();
+    }
     
-    public class GetAccountList : IAccList,IwebAccList,IVmAccList,IOthAccList
+    public class GetAccountList : IAccList,IwebAccList,IVmAccList,IOthAccList,IAlivedothList
     {
         public List<Account> GetAllAccount()
         {
@@ -65,6 +69,17 @@ namespace JJCKManager.BAL
             using(JJCKManagerContext jjckdb=new JJCKManagerContext())
             {
                 return jjckdb.ManagerAccounts.ToList();
+            }
+        }
+
+        List<OtherAccount> IAlivedothList.GetOtherAccountsalived() //根据数据状态查询，这个是普通用户的查询
+        {
+            using (JJCKManagerContext jjckdb = new JJCKManagerContext())
+            {
+                var alivedresult = from othacc in jjckdb.OtherAccounts
+                                   where othacc.DaId == (int)EuDataStatus.isavlied
+                                   select othacc;
+                return alivedresult.ToList();
             }
         }
     }

@@ -7,16 +7,14 @@ using System.Web;
 
 namespace JJCKManager.Models
 {
-    [Table("DataStatus",Schema ="JJCK")]
-    public class DataStatus
+    [Table("Datastatus",Schema ="JJCK")]
+    public class Datastatus
     {
         [Key]
-        public int DasId { get; set; }
-        [Required(ErrorMessage ="数据状态码不允许为空")]
-        public int statuscode { get; set; }
-        [Required(ErrorMessage ="数据状态描述不允许为空")]
-        [StringLength(15,ErrorMessage ="状态描述不能超过15个字符")]
-        public string statusdesc { get; set; }
+        public int DaId { get; set; }
+        [StringLength(50)]
+        public string StatusDesc { get; set; }
+
 
     }
 }

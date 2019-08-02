@@ -39,6 +39,8 @@ namespace JJCKManager.BAL
 
     public class AddData : IAddData,IAddIotData,IAddWebAcc,IAddVmAcc,IAddOtrherAcc
     {
+
+       
         /// <summary>
         /// 添加系统用户的方法
         /// </summary>
@@ -47,6 +49,7 @@ namespace JJCKManager.BAL
         {
             using(JJCKManagerContext jjckdb=new JJCKManagerContext())
             {
+                account.DaId = (int)EuDataStatus.isavlied;
                 jjckdb.Accounts.Add(account);
                 jjckdb.SaveChanges();
             }
@@ -59,7 +62,8 @@ namespace JJCKManager.BAL
         void IAddWebAcc.AddAccInfo(WebManagerAccount webacc)
         {
             using(JJCKManagerContext jjckdb=new JJCKManagerContext())
-            {                
+            {
+                webacc.DaId= (int)EuDataStatus.isavlied;
                 jjckdb.ManagerAccounts.Add(webacc);
                 jjckdb.SaveChanges();
             }
@@ -80,7 +84,8 @@ namespace JJCKManager.BAL
         void IAddOtrherAcc.AddOtAcc(OtherAccount otacc)
         {
             using(JJCKManagerContext jjckdb = new JJCKManagerContext())
-            {
+            {                
+                otacc.DaId = (int)EuDataStatus.isavlied;
                 jjckdb.OtherAccounts.Add(otacc);
                 jjckdb.SaveChanges();
             }
@@ -93,6 +98,7 @@ namespace JJCKManager.BAL
         {
            using(JJCKManagerContext jjckdb = new JJCKManagerContext())
             {
+                vmhostacc.DaId= (int)EuDataStatus.isavlied;
                 jjckdb.HostAccounts.Add(vmhostacc);
                 jjckdb.SaveChanges();
             }
