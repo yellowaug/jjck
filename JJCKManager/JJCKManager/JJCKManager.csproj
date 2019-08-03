@@ -231,6 +231,9 @@
     <Content Include="Views\VMAccount\UpVMacc.cshtml" />
     <Content Include="Views\WebAccount\UpWebacc.cshtml" />
     <Content Include="Views\OtherAccount\Delacc.cshtml" />
+    <Content Include="Views\VMAccount\DeleteVMacc.cshtml" />
+    <Content Include="Views\WebAccount\DeleteWebacc.cshtml" />
+    <Content Include="Views\SystemAccount\DeleteSysacc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

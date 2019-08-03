@@ -14,12 +14,15 @@ namespace JJCKManager.Controllers
     public class VMAccountController : Controller
     {
         private JJCKManagerContext jjckdb = new JJCKManagerContext();
+
         // GET: VMAccount
         public ActionResult Index()
         {
-            IVmAccList vmaccList = new GetAccountList();
-            var acclist=vmaccList.GetAllVmAcc();
-            return View(acclist);
+            //IVmAccList vmaccList = new GetAccountList();
+            //var acclist=vmaccList.GetAllVmAcc();
+            IAlivedVmList alivedVm = new GetAccountList();
+            var alivedacc = alivedVm.GetVMHostAccountsalived();
+            return View(alivedacc);
         }
         public ActionResult AddVmAccount()
         {
@@ -95,6 +98,44 @@ namespace JJCKManager.Controllers
             }
             return View(upothAcc);
 
+        }
+        public ActionResult DeleteVMacc(int? id)//软删除
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            IupVmAccount upvmAcc = new UpToTableData();
+            var vmaccs = upvmAcc.UptableVMAcc(id);
+            if (vmaccs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(vmaccs);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("DeleteVMacc")]
+        public ActionResult DeVmacc(int? id)//软删除
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var vmacclist = jjckdb.HostAccounts.Find(id);
+            if (vmacclist!=null)
+            {
+                vmacclist.DaId = (int)EuDataStatus.isdelete;
+                jjckdb.SaveChanges();
+                return RedirectToAction("index");
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+            
         }
 
     }

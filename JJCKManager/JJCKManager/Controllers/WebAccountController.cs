@@ -13,14 +13,16 @@ namespace JJCKManager.Controllers
 {
     public class WebAccountController : Controller
     {
-        JJCKManagerContext jjckdb = new JJCKManagerContext();
+        private JJCKManagerContext jjckdb = new JJCKManagerContext();
         // GET: WebAccount
         public ActionResult Index()
         {
-            IwebAccList webaccList = new GetAccountList();
-            var a= webaccList.GetAllWebAcc();
-            ViewBag.LoginName = User.Identity.Name;
-            return View(a);
+            //IwebAccList webaccList = new GetAccountList();
+            //var a= webaccList.GetAllWebAcc();
+            IAlivedWebList alivedWebList = new GetAccountList();
+            var alivedwebacclist = alivedWebList.GetWebManagerAccountsalived();
+            //ViewBag.LoginName = User.Identity.Name;
+            return View(alivedwebacclist);
         }
         public ActionResult AddWebAcc()
         {
@@ -66,7 +68,6 @@ namespace JJCKManager.Controllers
                 return HttpNotFound();
             }
             return View(webaccs);
-
         }
         [HttpPost]
         [ActionName("UpWebacc")]
@@ -99,6 +100,41 @@ namespace JJCKManager.Controllers
             }
             return View(webaccs);
 
+        }
+        public ActionResult DeleteWebacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupWebAccount upwebAcc = new UpToTableData();
+            var webaccs = upwebAcc.UptableWebAcc(id);
+            if (webaccs == null)
+            {
+                return HttpNotFound();
+            }
+            return View(webaccs);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("DeleteWebacc")]
+        public ActionResult DeWebacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var webaccresult = jjckdb.ManagerAccounts.Find(id);
+            if (webaccresult!=null)
+            {
+                webaccresult.DaId = (int)EuDataStatus.isdelete;
+                jjckdb.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
     }
 }

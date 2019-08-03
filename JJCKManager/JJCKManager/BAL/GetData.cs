@@ -33,18 +33,39 @@ namespace JJCKManager.BAL
     {
         List<VMHostAccount> GetAllVmAcc();
     } //获取其他账号信息
-    public interface IAlivedothList
+    public interface IAlivedothList//根据数据状态查询otheracc，这个是普通用户的查询
     {
         List<OtherAccount> GetOtherAccountsalived();
     }
+    public interface IAlivedVmList //根据数据状态查询vmacc，这个是普通用户的查询
+    {
+        List<VMHostAccount> GetVMHostAccountsalived();
+    }
+    public interface IAlivedWebList //根据数据状态查询webacc，这个是普通用户的查询
+    {
+        List<WebManagerAccount> GetWebManagerAccountsalived();
+    }
+    public interface IAlivedSysAccList //根据数据状态查询sysacc，这个是普通用户的查询
+    {
+        List<Account> GetAccountsalived();
+    }
     
-    public class GetAccountList : IAccList,IwebAccList,IVmAccList,IOthAccList,IAlivedothList
+    public class GetAccountList : IAccList,IwebAccList,IVmAccList,IOthAccList,IAlivedothList,IAlivedVmList,IAlivedWebList,IAlivedSysAccList
     {
         public List<Account> GetAllAccount()
         {
             using (JJCKManagerContext jjckdb = new JJCKManagerContext())
             {
                 return jjckdb.Accounts.ToList();
+            }
+        }
+
+        List<Account> IAlivedSysAccList.GetAccountsalived()//根据数据状态查询sysacc的接口实现，这个是普通用户的查询
+        {
+            using (JJCKManagerContext jjckdb=new JJCKManagerContext())
+            {
+                var alivedsys = jjckdb.Accounts.Where(x => x.DaId == (int)EuDataStatus.isavlied).ToList();
+                return alivedsys;
             }
         }
 
@@ -72,7 +93,7 @@ namespace JJCKManager.BAL
             }
         }
 
-        List<OtherAccount> IAlivedothList.GetOtherAccountsalived() //根据数据状态查询，这个是普通用户的查询
+        List<OtherAccount> IAlivedothList.GetOtherAccountsalived() //根据数据状态查询othacc的接口实现，这个是普通用户的查询
         {
             using (JJCKManagerContext jjckdb = new JJCKManagerContext())
             {
@@ -80,6 +101,24 @@ namespace JJCKManager.BAL
                                    where othacc.DaId == (int)EuDataStatus.isavlied
                                    select othacc;
                 return alivedresult.ToList();
+            }
+        }
+
+        List<VMHostAccount> IAlivedVmList.GetVMHostAccountsalived()//根据数据状态查询VMhostacc的接口实现，这个是普通用户的查询
+        {
+            using (JJCKManagerContext jjckdb=new JJCKManagerContext())
+            {
+                var vmhostresult = jjckdb.HostAccounts.Where(x => x.DaId == (int)EuDataStatus.isavlied).ToList();
+                return vmhostresult;
+            }
+        }
+
+        List<WebManagerAccount> IAlivedWebList.GetWebManagerAccountsalived()//根据数据状态查询webmanacc的接口实现，这个是普通用户的查询
+        {
+            using (JJCKManagerContext jjckdb=new JJCKManagerContext())
+            {
+                var webaccresult = jjckdb.ManagerAccounts.Where(x => x.DaId == (int)EuDataStatus.isavlied).ToList();
+                return webaccresult;
             }
         }
     }

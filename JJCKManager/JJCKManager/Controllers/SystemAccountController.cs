@@ -14,12 +14,15 @@ namespace JJCKManager.Controllers
     [Authorize]
     public class SystemAccountController : Controller
     {
+        private JJCKManagerContext jjckdb = new JJCKManagerContext();
         // GET: SystemAccount
         public ActionResult Index()
         {
             ViewBag.loginname = User.Identity.Name;//显示登录账号
-            IAccList accList = new GetAccountList();
-            return View(accList.GetAllAccount());
+            //IAccList accList = new GetAccountList();
+            IAlivedSysAccList alivedSysAccList = new GetAccountList();
+            var alivedsysresult = alivedSysAccList.GetAccountsalived();
+            return View(alivedsysresult);
             
         }
         public ActionResult AddAcc()
@@ -56,14 +59,12 @@ namespace JJCKManager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             IupAccount upsysacc = new UpToTableData();
-
             var sysaccres = upsysacc.UptableSysAcc(id);
             if ( sysaccres== null)
             {
                 return HttpNotFound();
             }
             return View(sysaccres);
-
         }
         [HttpPost]
         [ActionName("UpSysacc")]
@@ -95,6 +96,42 @@ namespace JJCKManager.Controllers
             }
             return View(sysaccres);
 
+        }
+        public ActionResult DeleteSysacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IupAccount upsysacc = new UpToTableData();
+            var sysaccres = upsysacc.UptableSysAcc(id);
+            if (sysaccres == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sysaccres);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("DeleteSysacc")]
+        public ActionResult DeSysacc(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var sysaccresult = jjckdb.Accounts.Find(id);
+            if (sysaccresult!=null)
+            {
+                sysaccresult.DaId = (int)EuDataStatus.isdelete;
+                jjckdb.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+            
         }
 
     }

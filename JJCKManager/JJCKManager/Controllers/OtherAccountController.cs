@@ -14,7 +14,7 @@ namespace JJCKManager.Controllers
 {
     public class OtherAccountController : Controller
     {
-        JJCKManagerContext jjckdb = new JJCKManagerContext();
+        private JJCKManagerContext jjckdb = new JJCKManagerContext();
         // GET: OtherAccount
         public ActionResult Index()
         {
@@ -73,7 +73,7 @@ namespace JJCKManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Putothacc(int? id, OtherAccount otherAccount)
         {
-            JJCKManagerContext jjckdb = new JJCKManagerContext();
+            //JJCKManagerContext jjckdb = new JJCKManagerContext();
 
             if (id == null)
             {
@@ -107,7 +107,6 @@ namespace JJCKManager.Controllers
             }
             IupOthAccount upothAcc = new UpToTableData();
             var othaccs = upothAcc.UptableOthAcc(id);
-            ViewData["Creater"] = new SelectList(jjckdb.Accounts, "Uid", "UserName");
             if (othaccs == null)
             {
                 return HttpNotFound();
@@ -120,27 +119,23 @@ namespace JJCKManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DelectOthacc(int? id)//软删除
         {
-            JJCKManagerContext jjckdb = new JJCKManagerContext();
+           
             if (id==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IupOthAccount upothAcc = new UpToTableData();
-            //var othaccs = upothAcc.UptableOthAcc(id);
             var othaccs = jjckdb.OtherAccounts.Find(id);
             if (othaccs != null)
-            {
+            { 
                 othaccs.DaId = (int)EuDataStatus.isdelete; 
                 jjckdb.SaveChanges();
+                return RedirectToAction("Index");
             }
-            //if (othaccs != null)
-            //{
-            //    othaccs.DaId = 1;
-                
-            //    jjckdb.SaveChanges();
-            //}
+            else
+            {
+                return HttpNotFound();
+            }
             
-            return RedirectToAction("Index");
         }
 
     }
