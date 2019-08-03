@@ -143,6 +143,7 @@
     <Compile Include="BAL\EnumCode.cs" />
     <Compile Include="BAL\GetData.cs" />
     <Compile Include="BAL\UpToData.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="APIControllers\IotWebAPIController.cs" />
     <Compile Include="Controllers\IotTempDataController.cs" />
@@ -234,9 +235,11 @@
     <Content Include="Views\VMAccount\DeleteVMacc.cshtml" />
     <Content Include="Views\WebAccount\DeleteWebacc.cshtml" />
     <Content Include="Views\SystemAccount\DeleteSysacc.cshtml" />
+    <Content Include="Views\File\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UpFile\" />
     <Folder Include="Views\AddAccount\" />
     <Folder Include="Views\IotWebAPI\" />
   </ItemGroup>
