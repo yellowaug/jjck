@@ -30,3 +30,8 @@ https://www.zhihu.com/question/25005120
 http://shumeipai.nxez.com/2018/05/16/dht11-temperature-and-humidity-sensor-raspberry-pi.html
 树莓派用到的python定时任务
 https://blog.51cto.com/huangyg/2367088
+
+ef 框架读写分离参考资料
+https://github.com/NeverCL/EntityFramework.Extension
+https://fhuan123.iteye.com/blog/2360925
+https://github.com/cjw0511/NDF.Infrastructure
