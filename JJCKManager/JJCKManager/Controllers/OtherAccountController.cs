@@ -12,6 +12,7 @@ using JJCKManager.Models;
 
 namespace JJCKManager.Controllers
 {
+    //[Authorize]
     public class OtherAccountController : Controller
     {
         private JJCKManagerContext jjckdb = new JJCKManagerContext();
@@ -134,10 +135,8 @@ namespace JJCKManager.Controllers
             else
             {
                 return HttpNotFound();
-            }
-            
+            }            
         }
-
     }
 
 }

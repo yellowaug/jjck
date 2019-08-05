@@ -7,11 +7,11 @@
 <h3>登录</h3>
 
 
-
-@using (Html.BeginForm("")) 
+@Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+@using (Html.BeginForm(""))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
 
         <hr />
@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.PasswordFor(model => model.PassWord, new { @class = "form-control" } )
+                @Html.PasswordFor(model => model.PassWord, new { @class = "form-control" })
 
                 @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
             </div>

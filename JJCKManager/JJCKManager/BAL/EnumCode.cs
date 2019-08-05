@@ -10,5 +10,10 @@ namespace JJCKManager.BAL
         isavlied = 1,
         isdelete
     }
+    enum EuAccStatus
+    {
+        isadmin=1,
+        noadmin
+    }
 
 }

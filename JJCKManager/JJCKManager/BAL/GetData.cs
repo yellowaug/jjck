@@ -19,7 +19,7 @@ namespace JJCKManager.BAL
     public interface IcheckUser
     {
         bool Isaccountuser(Account account);
-        //bool IsSuperMan(Account account);
+        bool Isadminacc(Account account);
     }
     public interface IwebAccList //获取WEB账号信息
     {
@@ -139,16 +139,11 @@ namespace JJCKManager.BAL
             
             using(JJCKManagerContext jjckdb=new JJCKManagerContext())
             {
+                //查询数据库查看数据库账号密码是否正确
                 var chkresult = from username in jjckdb.Accounts
                                 where username.UserName == account.UserName
                                 where username.PassWord==account.PassWord
                                 select username;
-                //var res = chkresult.ToList().Count();
-                //foreach (var item in chkresult)
-                //{
-                //    var res1 = item.PassWord;
-                //    var res2 = item.UserName;
-                //}
                 if (chkresult.ToList().Count() == 1)
                 {
                     return true;
@@ -163,17 +158,23 @@ namespace JJCKManager.BAL
                 }                                            
             }
         }
-
-        //bool IcheckUser.IsSuperMan(Account account)
-        //{
-        //    if (account.UserName=="Admin"&&account.PassWord=="jjck@123")
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+        public bool Isadminacc(Account account)
+        {
+            using (JJCKManagerContext jjckdb = new JJCKManagerContext())
+            {
+                var chkadmin = from inuser in jjckdb.Accounts
+                               where inuser.AccId == 1
+                               where inuser.UserName == account.UserName
+                               select inuser;
+                if (chkadmin.ToList().Count() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }               
+            }
+        }
     }
 }

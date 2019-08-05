@@ -27,6 +27,8 @@ namespace JJCKManager.Models
         public DateTime Createdate { get; set; }
         public int ?DaId { get; set; }
         public virtual Datastatus Datastatus { get; set; }
+        public int ?AccId { get; set; }
+        public virtual AccStatus Accstatus { get; set; }
 
     }
 }

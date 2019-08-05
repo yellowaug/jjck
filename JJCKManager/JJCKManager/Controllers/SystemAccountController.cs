@@ -11,7 +11,7 @@ using System.Net;
 
 namespace JJCKManager.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/ //局部登录验证
     public class SystemAccountController : Controller
     {
         private JJCKManagerContext jjckdb = new JJCKManagerContext();
@@ -45,7 +45,6 @@ namespace JJCKManager.Controllers
             }
             catch (DataException dataex)
             {
-
                 ModelState.AddModelError("", dataex);
             }
            

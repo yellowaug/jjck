@@ -23,21 +23,25 @@ namespace JJCKManager.Controllers
             //var userName=checkacc.accountuser(loginacc);
             if (!checkacc.Isaccountuser(loginacc))
             {
-                ModelState.AddModelError("CredentialError", "Invalid Username or Password");
-                return RedirectToAction("LoginIndex");
+                ModelState.AddModelError("CredentialError", "账号和密码错误");
+                //return RedirectToAction("LoginIndex");
             }
-            else
+            else if (checkacc.Isadminacc(loginacc)&& checkacc.Isaccountuser(loginacc))
             {
                 FormsAuthentication.SetAuthCookie(loginacc.UserName, false);
-                
+                return RedirectToAction("Index", "AdminUser");
+            }
+            else if (!checkacc.Isadminacc(loginacc)&& checkacc.Isaccountuser(loginacc))
+            {
+                FormsAuthentication.SetAuthCookie(loginacc.UserName, false);
                 return RedirectToAction("Index", "Home");
             }
-               
+            return View();   
         }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return View("LoginIndex");
+            return RedirectToAction("LoginIndex");
         }
     }
 }

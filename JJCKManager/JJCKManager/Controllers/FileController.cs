@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace JJCKManager.Controllers
 {
+    [Authorize]
     public class FileController : Controller
     {
         // GET: File

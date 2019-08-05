@@ -50,6 +50,7 @@ namespace JJCKManager.BAL
             using(JJCKManagerContext jjckdb=new JJCKManagerContext())
             {
                 account.DaId = (int)EuDataStatus.isavlied;
+                account.AccId = (int)EuAccStatus.noadmin;
                 jjckdb.Accounts.Add(account);
                 jjckdb.SaveChanges();
             }
