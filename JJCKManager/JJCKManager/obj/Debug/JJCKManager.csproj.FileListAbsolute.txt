@@ -295,3 +295,4 @@ H:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.csproj.CopyComplete
 H:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.dll
 H:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.pdb
 H:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.accstatus.resources
+E:\jjck\JJCKManager\JJCKManager\obj\Debug\JJCKManager.Migrations.accstatus.resources

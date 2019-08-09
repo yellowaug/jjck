@@ -17,7 +17,7 @@ namespace JJCKManager.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LoginIndex(Account loginacc)//这个的实现还有一些问题
+        public ActionResult LoginIndex(Account loginacc)//判断是否管理员账号
         {
             IcheckUser checkacc = new GetLoginUser();
             //var userName=checkacc.accountuser(loginacc);

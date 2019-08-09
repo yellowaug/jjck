@@ -1,0 +1,13 @@
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\JJCKsqlback.exe.config
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\JJCKsqlback.exe
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\JJCKsqlback.pdb
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Debug\JJCKsqlback.csprojAssemblyReference.cache
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Debug\JJCKsqlback.csproj.CoreCompileInputs.cache
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Debug\JJCKsqlback.exe
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Debug\JJCKsqlback.pdb
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\EntityFramework.dll
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\EntityFramework.SqlServer.dll
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\EntityFramework.xml
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\EntityFramework.SqlServer.xml
+E:\jjck\JJCKsqlback\JJCKsqlback\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Debug\JJCKsqlback.csproj.CopyComplete
