@@ -23,6 +23,9 @@ namespace JJCKsqlback
     {
         void Delete();
     }
+    /// <summary>
+    /// 这个类里生成的参数应该都要传入属性里，这样方便其他类调用，明天在公司实现一下
+    /// </summary>
     class Folder : ICreateFolder,IDeletFolder,IGetFolderInfo,ICurrentPath
     {
         
@@ -41,8 +44,8 @@ namespace JJCKsqlback
             }
             catch (IOException ioe)
             {
-                Console.WriteLine($"文件创建失败,返回的异常是：\n{ioe}");
-                return ioe.ToString();
+                Console.WriteLine($"文件创建失败,返回的异常是：\n{ioe.Message}");
+                return ioe.Message;
             }   
              
         }
