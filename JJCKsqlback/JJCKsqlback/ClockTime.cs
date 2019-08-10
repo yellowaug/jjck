@@ -3,15 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
+
 
 namespace JJCKsqlback
 {
     class ClockTime
     {
         ///<summary>
-        ///要添加定时器的，但是好像没什么思路，也没有现成的
-        ///明天看一下事件，然后呢自己写一个简易的定时器，C#的生态真的有够烂的
+        ///定时器
+        ///一个简单的定时运行的程序算是实现了
         ///</summary>
+        public void TimeCompare()
+        {
+            DateTime localtime = DateTime.Now;
+            int hournow = localtime.Hour;
+            int minuteNow = localtime.Minute;
+            int seconNow = localtime.Second;
+            if (hournow==23&&minuteNow==30&&seconNow==00)
+            {
+                Console.WriteLine("就是这个时候了");
+                Console.WriteLine("数据库正在备份中。。。。。");
+            }
+            else
+            {
+                Console.WriteLine(localtime.ToString("yyyy-MM-dd hh:mm:ss"));
+            }
+        }
+        
     }
 }
