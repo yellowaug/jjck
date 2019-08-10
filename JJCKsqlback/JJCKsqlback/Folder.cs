@@ -13,27 +13,31 @@ namespace JJCKsqlback
     }
     public interface IGetFolderInfo
     {
-        DirectoryInfo[] GetFolderInfo();
+        List<Dirinfo> GetFolderInfo(string folderpath);
     }
     public interface ICreateFolder
     {
-        string Create();
+        string Create(string filePath);
     }
     public interface IDeletFolder
     {
-        void Delete();
+        void Delete(string dirpath);
+    }
+    public interface IEumFiles
+    {
+        IEnumerable<FileInfo> EumFile(Dirinfo dirinfo);
     }
     /// <summary>
     /// 这个类里生成的参数应该都要传入属性里，这样方便其他类调用，明天在公司实现一下
     /// </summary>
-    class Folder : ICreateFolder,IDeletFolder,IGetFolderInfo,ICurrentPath
+    public class Folder : ICreateFolder,IDeletFolder,IGetFolderInfo,ICurrentPath,IEumFiles
     {
         
-        string ICreateFolder.Create()
+        string ICreateFolder.Create(string filePath)
         {
             DateTime dt = new DateTime();
             dt = DateTime.Now;
-            string folderName= @"c:\testFolder";
+            string folderName= filePath;
             string timeFull = dt.ToString("yyyyMMddTHHmmss");
             string pathStr = Path.Combine(folderName, timeFull);
             try
@@ -49,21 +53,70 @@ namespace JJCKsqlback
             }   
              
         }
-        void IDeletFolder.Delete()
+        void IDeletFolder.Delete(string dirpath)
         {
+            try
+            {
+                if (Directory.Exists(dirpath))
+                {
+                    Directory.Delete(dirpath, true);
+                    Console.WriteLine($"文件夹以及子文件{dirpath}删除成功");
+                }                
+            }
+            catch (ArgumentException argexc)
+            {
+
+                Console.WriteLine(argexc);
+            }
+            catch (DirectoryNotFoundException direxcp)
+            {
+                Console.WriteLine(direxcp);
+            }
+            catch (IOException ioexcp)
+            {
+                Console.WriteLine(ioexcp);
+            }
+            catch (UnauthorizedAccessException unauexcp)
+            {
+                Console.WriteLine(unauexcp);
+            }
 
         }
 
-        DirectoryInfo[] IGetFolderInfo.GetFolderInfo()
+        IEnumerable<FileInfo> IEumFiles.EumFile(Dirinfo dirinfo)
         {
-            DirectoryInfo diinfo = new DirectoryInfo(@"c:\testFolder");
+            DirectoryInfo directory = new DirectoryInfo(dirinfo.FullPath);
+            var fileinfoEnu = directory.EnumerateFiles();
+            if (fileinfoEnu!=null)
+            {
+                foreach (var file in fileinfoEnu)
+                {
+                    Console.WriteLine(file.FullName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("文件夹为空");
+            }
+            return fileinfoEnu;
+        }
+
+        List<Dirinfo> IGetFolderInfo.GetFolderInfo(string folderpath)
+        {
+            List<Dirinfo> dirinfolist = new List<Dirinfo>();
+            DirectoryInfo diinfo = new DirectoryInfo(folderpath);
             foreach (var filelist in diinfo.GetDirectories())
             {
+                Dirinfo dirinfo = new Dirinfo();
+                dirinfo.FolderName = filelist.Name;
+                dirinfo.RootPath = folderpath;
+                dirinfo.FullPath = Path.Combine(folderpath, filelist.Name);
+                dirinfolist.Add(dirinfo);
                 Console.WriteLine("当前文件夹下的子文件夹：{0}",filelist.Name);
             }
-            return diinfo.GetDirectories();
-
+            return dirinfolist;
         }
+
 
         void ICurrentPath.SetPath(string direPath)
         {

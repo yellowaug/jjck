@@ -8,42 +8,40 @@ using System.IO;
 
 namespace JJCKsqlback
 {
-    public class Dbinfo
-    {
-        public string DbName { get; set; }
-        public string PathAndFileName { get; set; }
-        public string SQLShell { get; set; }
-    }
+
     public interface IAutoBackUp
     {
         void AutoBack(Dbinfo dbinfos, OdbcConnection connection);
     }
     public interface IGetDbList
     {
-        void GetDb(string backPath, string[] dbname);
+        List<Dbinfo> GetDb(OdbcConnection connection, string backPath, string[] dbname);
+    }
+    public interface IConnectionDb
+    {
+        OdbcConnection InitConnection();
+    }
+    public interface ICloseConnection
+    {
+        void Closeconnection(OdbcConnection connection);
     }
     /// <summary>
     /// 自动备份的方法，DBinfo打算是传入LIST的
     /// </summary>
-    class DataBase : IAutoBackUp,IGetDbList
+    class DataBase : IAutoBackUp,IGetDbList,IConnectionDb,ICloseConnection
     {
         
         void IAutoBackUp.AutoBack(Dbinfo dbinfos,OdbcConnection connection)
-        {
-            //string constr = "Driver={SQL Server};Server=(local);Trusted_Connection=Yes;Database=EFtest";
-            //string sqlShell = @"BACKUP DATABASE [EFtest] TO  
-            //                  DISK = N'F:\test\EFtest'WITH NOFORMAT, NOINIT,  
-            //                  NAME = N'EFtest-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-            
-            
-            //OdbcConnection connection = new OdbcConnection(constr);
-            //connection.Open();
-            //string backfilePath = Path.Combine(backPath, connection.Database);
-            //string sqlshell = @"BACKUP DATABASE [Book] TO  DISK = N'" + backfilePath + "' WITH NOFORMAT, NOINIT,  NAME = N'EFtest-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+        {           
             OdbcCommand command = new OdbcCommand(dbinfos.SQLShell,connection);
+            command.CommandTimeout = 0; //不限制等待时间
             try
-            {                
-                Console.WriteLine(command.ExecuteNonQuery()); 
+            {
+                Console.WriteLine($"数据库{dbinfos.DbName}备份中.....");
+                if (command.ExecuteNonQuery()==-1)
+                {
+                    Console.WriteLine($"数据库{dbinfos.DbName}备份成功.....");
+                }                              
             }
             catch (InvalidOperationException nonquery)
             {
@@ -57,8 +55,6 @@ namespace JJCKsqlback
             finally
             {
                 command.Dispose();
-                connection.Close();
-                connection.Dispose();
             }
         }
         /// <summary>
@@ -66,29 +62,41 @@ namespace JJCKsqlback
         /// </summary>
         /// <param name="backPath"></param>
         /// <param name="dbname"></param>
-        void IGetDbList.GetDb(string backPath, string[] dbname)
+        List<Dbinfo> IGetDbList.GetDb(OdbcConnection connection, string backPath, string[] dbname)
         {
             List<Dbinfo> dbinfos = new List<Dbinfo>();
-            Dbinfo setDbinfo = new Dbinfo();
-            string constr = "Driver={SQL Server};Server=(local);Trusted_Connection=Yes;Database=EFtest";
             
-            OdbcConnection connection = new OdbcConnection(constr);
-            connection.Open();
-            string backfilePath = Path.Combine(backPath, connection.Database);
-            string sqlshell = @"BACKUP DATABASE ["+ connection.Database + "] TO  DISK = N'" + backfilePath + "' WITH NOFORMAT, NOINIT,  NAME = N'"+ connection.Database + "-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-            setDbinfo.PathAndFileName = backfilePath;
-            setDbinfo.SQLShell = sqlshell;
-            dbinfos.Add(setDbinfo); //到这就是生成一个备份语句的结束
             foreach (var db in dbname)
             {
+                Dbinfo setDbinfo = new Dbinfo();
                 connection.ChangeDatabase(db);
-                backfilePath = Path.Combine(backPath, db);
-                sqlshell= @"BACKUP DATABASE [" + db + "] TO  DISK = N'" + backfilePath + "' WITH NOFORMAT, NOINIT,  NAME = N'" + db + "-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                string backfilePath = Path.Combine(backPath, db);
+                string sqlshell= @"BACKUP DATABASE [" + db + "] TO  DISK = N'" + backfilePath + "' WITH NOFORMAT, NOINIT,  NAME = N'" + db + "-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
                 setDbinfo.PathAndFileName = backfilePath;
                 setDbinfo.SQLShell = sqlshell;
+                setDbinfo.DbName = connection.Database;
                 dbinfos.Add(setDbinfo);
             }
+            return dbinfos;
 
+
+        }
+
+        OdbcConnection IConnectionDb.InitConnection()
+        {
+            string constr = "Driver={SQL Server};Server=(local);Trusted_Connection=Yes";
+            OdbcConnection connection = new OdbcConnection(constr);
+            connection.Open();
+            return connection;
+        }
+        /// <summary>
+        /// 关闭数据库连接对象
+        /// </summary>
+        /// <param name="connection"></param>
+        void ICloseConnection.Closeconnection(OdbcConnection connection)
+        {
+            connection.Close();
+            connection.Dispose();
         }
     }
 }
