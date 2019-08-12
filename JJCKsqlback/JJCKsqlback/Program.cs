@@ -14,14 +14,16 @@ namespace JJCKsqlback
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+           
             SqlAction sqlAction = new SqlAction();
-            SQLshell autobackshell = sqlAction.DataBaseContronal;           
+            SQLshell autobackshell = sqlAction.DataBaseContronal;
+            //FileAction fileAction = new FileAction();
+            //SQLshell autodeleteFile = fileAction.FileShell;
             while (true)
             {
                 ClockTime clockTime = new ClockTime();
-                clockTime.TimeCompare(autobackshell);
-                Thread.Sleep(100);
-                Console.Clear();
+                clockTime.TimeCompare(autobackshell);//这个是自动备份的委托调用 
+                //clockTime.DayCompare(autodeleteFile);//这个是每隔四天就要删除一次文件。
             }
             //Console.ReadKey();
 

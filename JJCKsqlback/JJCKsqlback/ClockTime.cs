@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -20,7 +21,7 @@ namespace JJCKsqlback
             int hournow = localtime.Hour;
             int minuteNow = localtime.Minute;
             int seconNow = localtime.Second;
-            if (hournow==11&&minuteNow==57&&seconNow==00)
+            if (hournow==03&&minuteNow==00&&seconNow==00)
             {
                                
                 Console.WriteLine("数据库正在备份中。。。。。");
@@ -28,7 +29,11 @@ namespace JJCKsqlback
             }
             else
             {
-                Console.WriteLine(localtime.ToString("yyyy-MM-dd hh:mm:ss"));
+
+                Console.WriteLine("当前时间：{0}",localtime.ToString("yyyy-MM-dd HH:mm:ss"));
+                Console.WriteLine("程序运行的时间03:00:00");
+                Thread.Sleep(100);
+                Console.Clear();
             }
         }
         /// <summary>
@@ -39,7 +44,7 @@ namespace JJCKsqlback
         {
             DateTime localtime = DateTime.Now;
             int dayNow = localtime.Day;
-            var comPare = dayNow % 4;
+            var comPare = dayNow % 5;
             Console.WriteLine(comPare);
             if (comPare == 0)
             {
@@ -47,7 +52,8 @@ namespace JJCKsqlback
             }
             else
             {
-                Console.WriteLine(localtime.ToString("yyyy-MM-dd hh:mm:ss"));
+                Console.WriteLine(localtime.ToString("yyyy-MM-dd HH:mm:ss"));
+                Console.Clear();
             }
         }
         

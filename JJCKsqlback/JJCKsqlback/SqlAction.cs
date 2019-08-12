@@ -17,7 +17,8 @@ namespace JJCKsqlback
             ///创建文件，返回文件路径
             ///string filepath 文件存放的路径
             ///</summary>
-            string filepath = @"D:\sqlbak";
+            string filepath = @"E:\DataBase_AutoBak"; //这个路径记当换机子的时候记得修改
+            //string filepath = folderpath; //这个路径记当换机子的时候记得修改
             ICreateFolder createFolder = new Folder();
             string path = createFolder.Create(filepath);
             ///<summary>
@@ -31,7 +32,7 @@ namespace JJCKsqlback
             ///生成备份语句
             ///string[] backdblist 这个是要备份的数据库名称的数组，一般改这就好了
             ///</summary>
-            string[] backdblist = { "aspnetdb", "JJ_Annex", "JJ_Communication", "JJ_Sale", "JJ_System" };
+            string[] backdblist = { "aspnetdb", "JJ_Communication", "JJ_Sale", "JJ_System","JJlinshi" };
             //string[] backdblist = { "Account", "Book", "EFtest" };
             IGetDbList getDbList = new DataBase();
             var dbList = getDbList.GetDb(connection, path, backdblist);
