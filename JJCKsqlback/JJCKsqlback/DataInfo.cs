@@ -23,5 +23,6 @@ namespace JJCKsqlback
     {
         public int RunDay { get; set; }
         public int RunCount { get; set; }
+        public int RunMount { get; set; }
     }
 }

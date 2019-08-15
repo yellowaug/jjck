@@ -15,24 +15,35 @@ namespace JJCKsqlback
         /// 
         static void Main(string[] args)
         {
-           
+            #region 这段代码是数据库定时备份程序以及每隔4天删除文件的调用程序
             SqlAction sqlAction = new SqlAction();
             FileAction fileAction = new FileAction();
             SQLshell autobackshell = sqlAction.DataBaseContronal;
             SQLshell autodeleteFile = fileAction.FileShell;
-            //SQLshell autodeleteshell = fileAction.TestShell;
-            //SQLshell autobackshell = sqlAction.Test;
             ClockTime clockTime = new ClockTime();
             var setRunTime = clockTime.SetRunDay(4);
             while (true)
-            {               
+            {
                 clockTime.TimeCompare(autobackshell);//这个是自动备份的委托调用 
                 clockTime.DayCompare(autodeleteFile, setRunTime); //这个是删除4天的文件夹
                 //clockTime.DayCompare(autodeleteFile);//这个是每隔四天就要删除一次文件。
             }
+            #endregion
+            #region 这段代码是定时删除图片缓存文件
+            //FileAction fileAction = new FileAction();
+            //SQLshell autodeleteshell = fileAction.DeleteFileShell;
+            //ClockTime clockTime = new ClockTime();
+            //var setRunMonth = clockTime.SetRunMonth(3);
+            //while (true)
+            //{
+            //    clockTime.MonthCompare(autodeleteshell, setRunMonth);
+
+            //}
+            #endregion
+
             //Console.ReadKey();
 
-            
+
 
         }
     }
