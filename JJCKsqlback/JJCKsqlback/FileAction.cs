@@ -34,6 +34,10 @@ namespace JJCKsqlback
 
             }
         }
+        public void TestShell()
+        {
+            Console.WriteLine("测试方法运行成功");
+        }
 
     }
 }

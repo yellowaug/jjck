@@ -56,34 +56,10 @@ namespace JJCKsqlback
             ///</summary>
             ICloseConnection close = new DataBase();
             close.Closeconnection(connection);
-
-
-            ///<summary>
-            ///获取子文件夹列表,并删除文件夹以及文件
-            ///</summary>
-            //IGetFolderInfo folderInfo = new Folder();
-            //IEumFiles eumFiles = new Folder();
-            //IDeletFolder deletFolder = new Folder();
-            //var floderobjinfo = folderInfo.GetFolderInfo(filepath);
-            //for (int i = 0; i < floderobjinfo.Count - 1; i++)
-            //{
-            //    deletFolder.Delete(floderobjinfo[i].FullPath);
-
-            //}
-            //foreach (var folder in floderobjinfo)
-            //{
-            //    //Console.WriteLine(folder.FolderName);
-            //    //Console.WriteLine(folder.RootPath);
-            //    //Console.WriteLine(folder.FullPath);
-            //    Console.WriteLine("==========================");
-            //    eumFiles.EumFile(folder);
-            //    deletFolder.Delete(folder.FullPath);
-
-            //}
-
-            ///<summary>
-            ///文件删除
-            ///</summary>
+        }
+        public void Test()
+        {
+            Console.WriteLine("测试方法已运行");
         }
     }
 }

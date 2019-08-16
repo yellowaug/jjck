@@ -19,4 +19,9 @@ namespace JJCKsqlback
         public string FullPath { get; set; }
 
     }
+    public class RunTimeData
+    {
+        public int RunDay { get; set; }
+        public int RunCount { get; set; }
+    }
 }

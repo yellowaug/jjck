@@ -10,3 +10,4 @@ E:\jjck\JJCKsqlback\JJCKsqlback\obj\Release\JJCKsqlback.csproj.CoreCompileInputs
 E:\jjck\JJCKsqlback\JJCKsqlback\obj\Release\JJCKsqlback.csproj.CopyComplete
 E:\jjck\JJCKsqlback\JJCKsqlback\obj\Release\JJCKsqlback.exe
 E:\jjck\JJCKsqlback\JJCKsqlback\obj\Release\JJCKsqlback.pdb
+E:\jjck\JJCKsqlback\JJCKsqlback\obj\Release\JJCKsqlback.csprojAssemblyReference.cache

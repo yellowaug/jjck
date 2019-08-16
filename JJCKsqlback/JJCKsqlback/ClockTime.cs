@@ -21,7 +21,7 @@ namespace JJCKsqlback
             int hournow = localtime.Hour;
             int minuteNow = localtime.Minute;
             int seconNow = localtime.Second;
-            if (hournow==03&&minuteNow==00&&seconNow==00)
+            if (hournow==16&&minuteNow==54&&seconNow==00)
             {
                                
                 Console.WriteLine("数据库正在备份中。。。。。");
@@ -40,21 +40,37 @@ namespace JJCKsqlback
         /// 根据设定的时间，判断程序要间隔几天执行
         /// </summary>
         /// <param name="shell"></param>
-        public void DayCompare(SQLshell shell)
+        public void DayCompare(SQLshell shell,RunTimeData runTime)
         {
             DateTime localtime = DateTime.Now;
             int dayNow = localtime.Day;
-            var comPare = dayNow % 5;
-            Console.WriteLine(comPare);
-            if (comPare == 0)
+            if (dayNow == runTime.RunDay)
             {
-                shell();
+                
+                var runday=SetRunDay();
+                runday.RunCount = 1;
+                if (runday.RunCount==1)
+                {
+                    shell();
+                    runday.RunCount = 0;
+                }
             }
             else
             {
-                Console.WriteLine(localtime.ToString("yyyy-MM-dd HH:mm:ss"));
-                Console.Clear();
+                Console.WriteLine($"距离执行该程序还有{runTime.RunDay-localtime.Day}天");
+
             }
+
+
+        }
+        public RunTimeData SetRunDay()
+        {
+            RunTimeData runTime = new RunTimeData();
+            DateTime localtime = DateTime.Now;
+            int dayNow = localtime.Day;
+            int runDay = dayNow + 4 - 1;
+            runTime.RunDay = runDay;
+            return runTime;
         }
         
     }
