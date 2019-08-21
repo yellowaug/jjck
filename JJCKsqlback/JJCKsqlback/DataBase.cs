@@ -74,8 +74,9 @@ namespace JJCKsqlback
                 string sqlshell= @"BACKUP DATABASE [" + db + "] TO  DISK = N'" + backfilePath + "' WITH NOFORMAT, NOINIT,  NAME = N'" + db + "-完整 数据库 备份', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
                 setDbinfo.PathAndFileName = backfilePath;
                 setDbinfo.SQLShell = sqlshell;
-                setDbinfo.DbName = connection.Database;
+                setDbinfo.DbName = connection.Database;               
                 dbinfos.Add(setDbinfo);
+                
             }
             return dbinfos;
 

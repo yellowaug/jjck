@@ -50,8 +50,7 @@ namespace JJCKsqlback
             {
                 Console.WriteLine($"文件创建失败,返回的异常是：\n{ioe.Message}");
                 return ioe.Message;
-            }   
-             
+            }                
         }
         void IDeletFolder.Delete(string dirpath)
         {

@@ -55,7 +55,9 @@
     <Compile Include="ClockTime.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="DataInfo.cs" />
+    <Compile Include="FileAction.cs" />
     <Compile Include="Folder.cs" />
+    <Compile Include="LogFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlAction.cs" />
