@@ -25,8 +25,10 @@ namespace JJCKManager.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode =true)]
         public DateTime Createdate { get; set; }
+        [Display(Name ="数据状态")]
         public int ?DaId { get; set; }
         public virtual Datastatus Datastatus { get; set; }
+        [Display(Name ="账号状态")]
         public int ?AccId { get; set; }
         public virtual AccStatus Accstatus { get; set; }
 

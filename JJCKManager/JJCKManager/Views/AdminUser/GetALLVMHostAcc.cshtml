@@ -1,0 +1,74 @@
+﻿@model IEnumerable<JJCKManager.Models.VMHostAccount>
+
+@{
+    ViewBag.Title = "GetALLVMHostAcc";
+}
+
+<h2>GetALLVMHostAcc</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VMhostName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VMLoginIp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VMLoginPassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VMCreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VmAccountDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VMhostName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VMLoginIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VMLoginPassWord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VMCreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VmAccountDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VmhostId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VmhostId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VmhostId })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <a href="/AdminUser" class="btn btn-primary btn-lg">返回上一页 &raquo;</a>
+</p>
+

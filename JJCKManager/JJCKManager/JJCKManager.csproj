@@ -243,6 +243,10 @@
     <Content Include="Views\SystemAccount\DeleteSysacc.cshtml" />
     <Content Include="Views\File\UploadFile.cshtml" />
     <Content Include="Views\AdminUser\Index.cshtml" />
+    <Content Include="Views\AdminUser\GetAllAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLWebManagetAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLVMHostAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLOtherAcc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

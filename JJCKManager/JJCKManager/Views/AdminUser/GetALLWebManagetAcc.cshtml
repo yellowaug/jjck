@@ -1,0 +1,74 @@
+﻿@model IEnumerable<JJCKManager.Models.WebManagerAccount>
+
+@{
+    ViewBag.Title = "GetALLWebManagetAcc";
+}
+
+<h2>GetALLWebManagetAcc</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountPassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebUrlORIPaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebAccountDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountPassWord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebUrlORIPaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebAccountDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.WaID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.WaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.WaID })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <a href="/AdminUser" class="btn btn-primary btn-lg">返回上一页 &raquo;</a>
+</p>
+
