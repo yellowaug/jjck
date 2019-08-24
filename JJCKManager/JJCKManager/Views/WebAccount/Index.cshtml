@@ -4,9 +4,9 @@
     ViewBag.Title = "Web账号列表";
 }
 
-<p>
+@*<p>
     @Html.ActionLink("新建账号", "AddWebAcc")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -51,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.CreateUser)<!--这个方法得重写-->
         </td>
         <td>
-            @Html.ActionLink("Edit", "UpWebacc", new { id=item.WaID }) |
+           @* @Html.ActionLink("Edit", "UpWebacc", new { id=item.WaID }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.WaID }) |
             @Html.ActionLink("Delete", "DeleteWebacc", new { id=item.WaID })
         </td>

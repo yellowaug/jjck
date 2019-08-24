@@ -4,10 +4,10 @@
     ViewBag.Title = "GetALLOtherAcc";
 }
 
-<h2>GetALLOtherAcc</h2>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("录入通用账号", "AddOthAcc","OtherAccount")
 </p>
 <table class="table">
     <tr>
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.DaId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OAccID }) |
+                @Html.ActionLink("Edit", "UpOthacc", "OtherAccount",new { id = item.OAccID }, new { target = "_blank" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.OAccID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.OAccID })
             </td>

@@ -64,8 +64,11 @@ namespace JJCKManager.BAL
         {
             using (JJCKManagerContext jjckdb=new JJCKManagerContext())
             {
-                var alivedsys = jjckdb.Accounts.Where(x => x.DaId == (int)EuDataStatus.isavlied).ToList();
-                return alivedsys;
+                //var alivedsys = jjckdb.Accounts.Where(x => x.DaId == (int)EuDataStatus.isavlied).ToList();
+                var alivedsys = from sysAcc in jjckdb.Accounts
+                                where sysAcc.DaId == (int)EuDataStatus.isavlied
+                                select sysAcc;
+                return alivedsys.ToList();
             }
         }
 

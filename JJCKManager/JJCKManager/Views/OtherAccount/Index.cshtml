@@ -5,9 +5,7 @@
 }
 
 
-<p>
-    @Html.ActionLink("Create New", "AddOthAcc")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -40,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.Creater)
         </td>
         <td>
-            @Html.ActionLink("Edit", "UpOthacc", new { id=item.OAccID }) |
+           @* @Html.ActionLink("Edit", "UpOthacc", new { id=item.OAccID }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.OAccID }) |
             @Html.ActionLink("Delete", "Delacc", new { id=item.OAccID })
         </td>

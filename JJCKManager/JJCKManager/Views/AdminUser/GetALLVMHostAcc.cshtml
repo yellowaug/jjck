@@ -4,10 +4,9 @@
     ViewBag.Title = "GetALLVMHostAcc";
 }
 
-<h2>GetALLVMHostAcc</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("录入虚拟机账号", "AddVmAccount", "VMAccount")
 </p>
 <table class="table">
     <tr>
@@ -60,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.DaId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VmhostId }) |
+                @Html.ActionLink("Edit", "UpVMacc","VMAccount", new { id = item.VmhostId }, new { target = "_blank" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.VmhostId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.VmhostId })
             </td>

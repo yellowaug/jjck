@@ -4,10 +4,10 @@
     ViewBag.Title = "GetALLWebManagetAcc";
 }
 
-<h2>GetALLWebManagetAcc</h2>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("录入Web账号","AddWebAcc","WebAccount")
 </p>
 <table class="table">
     <tr>
@@ -60,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.DaId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.WaID }) |
+                @Html.ActionLink("Edit", "UpWebacc","WebAccount", new { id = item.WaID }, new { target = "_blank" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.WaID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.WaID })
             </td>

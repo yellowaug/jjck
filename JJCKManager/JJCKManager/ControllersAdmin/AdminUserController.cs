@@ -13,7 +13,7 @@ namespace JJCKManager.ControllersAdmin
         /// 导航页面
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        [Authorize(Users ="admin")]
         public ActionResult Index()
         {
             return View();

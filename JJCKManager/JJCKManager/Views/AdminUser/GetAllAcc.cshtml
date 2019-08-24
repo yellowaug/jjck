@@ -4,10 +4,9 @@
     ViewBag.Title = "GetAllAcc";
 }
 
-<h2>GetAllAcc</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("录入系统账号", "AddAcc","SystemAccount")
 </p>
 <table class="table">
     <tr>
@@ -48,8 +47,8 @@
                 @Html.DisplayFor(modelItem => item.AccId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Uid }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Uid }) |
+                @Html.ActionLink("Edit", "Upsysacc","SystemAccount", new { id = item.Uid },new { target="_blank"}) |
+                @Html.ActionLink("Details", "Details", "SystemAccount", new { id = item.Uid }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Uid })
             </td>
         </tr>

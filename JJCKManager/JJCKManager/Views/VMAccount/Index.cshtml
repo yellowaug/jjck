@@ -4,9 +4,7 @@
     ViewBag.Title = "虚拟机账号列表";
 }
 
-<p>
-    @Html.ActionLink("新建账号", "AddVmAccount")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -51,7 +49,7 @@
             @Html.DisplayFor(modelItem => item.VmAccountDesc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "UpVMacc", new { id=item.VmhostId }) |
+            @*@Html.ActionLink("Edit", "UpVMacc", new { id=item.VmhostId }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.VmhostId }) |
             @Html.ActionLink("Delete", "DeleteVMacc", new { id=item.VmhostId })
         </td>
