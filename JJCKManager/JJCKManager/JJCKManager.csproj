@@ -143,6 +143,7 @@
     <Compile Include="BAL\EnumCode.cs" />
     <Compile Include="BAL\GetData.cs" />
     <Compile Include="BAL\UpToData.cs" />
+    <Compile Include="ControllersAdmin\AdminUserController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="APIControllers\IotWebAPIController.cs" />
@@ -172,8 +173,13 @@
     <Compile Include="Migrations\201908020649239_testfk4.Designer.cs">
       <DependentUpon>201908020649239_testfk4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908051104371_accstatus.cs" />
+    <Compile Include="Migrations\201908051104371_accstatus.Designer.cs">
+      <DependentUpon>201908051104371_accstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccStatus.cs" />
     <Compile Include="Models\DataStatus.cs" />
     <Compile Include="Models\IotTemperListFunction.cs" />
     <Compile Include="Models\OtherAccount.cs" />
@@ -236,6 +242,11 @@
     <Content Include="Views\WebAccount\DeleteWebacc.cshtml" />
     <Content Include="Views\SystemAccount\DeleteSysacc.cshtml" />
     <Content Include="Views\File\UploadFile.cshtml" />
+    <Content Include="Views\AdminUser\Index.cshtml" />
+    <Content Include="Views\AdminUser\GetAllAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLWebManagetAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLVMHostAcc.cshtml" />
+    <Content Include="Views\AdminUser\GetALLOtherAcc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908020649239_testfk4.resx">
       <DependentUpon>201908020649239_testfk4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908051104371_accstatus.resx">
+      <DependentUpon>201908051104371_accstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

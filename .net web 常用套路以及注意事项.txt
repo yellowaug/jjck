@@ -280,3 +280,29 @@ Web.config的设置、
 ===================================================================================================================
 https://docs.microsoft.com/zh-cn/aspnet/web-pages/overview/data/working-with-files
 明天实现
+
+===================================================================================================================
+登录验证的行为验证基本，有Controller级别的，还有Global级别的
+===================================================================================================================
+Controller 级别：
+
+[Authorize]
+public class EmployeeController : Controller  
+{
+....
+Global 级别：这个使用的时候无法自动跳转
+
+第一步：从 App_start 文件夹下打开 FilterConfig.cs 文件
+
+第二步：在 RegisterGlobalFilters 中增加一行
+
+public static void RegisterGlobalFilters(GlobalFilterCollection filters)  
+{
+    filters.Add(new HandleErrorAttribute());//Old line
+    filters.Add(new AuthorizeAttribute());//New Line
+}
+第三步：向 AuthenticationController 附上 AllowAnonymous 属性
+
+[AllowAnonymous]
+public class AuthenticationController : Controller  
+{

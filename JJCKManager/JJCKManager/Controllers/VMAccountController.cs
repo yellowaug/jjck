@@ -11,6 +11,7 @@ using System.Net;
 
 namespace JJCKManager.Controllers
 {
+    [Authorize]
     public class VMAccountController : Controller
     {
         private JJCKManagerContext jjckdb = new JJCKManagerContext();

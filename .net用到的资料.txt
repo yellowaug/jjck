@@ -35,3 +35,10 @@ ef 框架读写分离参考资料
 https://github.com/NeverCL/EntityFramework.Extension
 https://fhuan123.iteye.com/blog/2360925
 https://github.com/cjw0511/NDF.Infrastructure
+
+c# windows api 关于文件以及文件夹的操作
+https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
+c# windows api ODBC驱动的API调用 https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics?view=netframework-4.8
+
+数据库事务的说明
+https://www.cnblogs.com/edisonchou/p/6129717.html#ch1

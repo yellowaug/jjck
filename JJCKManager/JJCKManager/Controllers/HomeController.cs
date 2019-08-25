@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace JJCKManager.Controllers
 {
+    [System.Web.Mvc.AllowAnonymous]//这个页面不用登录验证
     public class HomeController : Controller
     {
         public ActionResult Index()
