@@ -24,9 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CreateTime)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CreateUser)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -47,9 +47,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CreateTime)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateUser)<!--这个方法得重写-->
-        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CreateUser)
+        </td>*@
         <td>
            @* @Html.ActionLink("Edit", "UpWebacc", new { id=item.WaID }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.WaID }) |

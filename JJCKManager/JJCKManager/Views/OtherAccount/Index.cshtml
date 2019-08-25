@@ -17,9 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.AccountDesc)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Creater)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -34,9 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.AccountDesc)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Creater)
-        </td>
+        </td>*@
         <td>
            @* @Html.ActionLink("Edit", "UpOthacc", new { id=item.OAccID }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.OAccID }) |
