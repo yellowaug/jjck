@@ -1,0 +1,11 @@
+H:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.deps.json
+H:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.runtimeconfig.json
+H:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.runtimeconfig.dev.json
+H:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.dll
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csprojAssemblyReference.cache
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csproj.CoreCompileInputs.cache
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfoInputs.cache
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfo.cs
+H:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.pdb
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.dll
+H:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.pdb
