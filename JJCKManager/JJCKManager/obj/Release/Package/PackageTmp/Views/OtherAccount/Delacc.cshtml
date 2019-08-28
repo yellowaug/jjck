@@ -1,0 +1,64 @@
+﻿@model JJCKManager.Models.OtherAccount
+
+@{
+    ViewBag.Title = "Delacc";
+}
+
+<h2>Delacc</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OtherAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherAccountName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherAccountName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassWord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
