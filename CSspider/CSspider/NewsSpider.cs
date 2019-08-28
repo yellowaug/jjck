@@ -4,19 +4,45 @@ using System.Linq;
 using System.Text;
 using HtmlAgilityPack;
 using System.Net;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CSspider
 {
+    /// <summary>
+    /// 这个类是熟悉类，缓存爬虫获取到的字段信息
+    /// </summary>
+    public class SZJYProject
+    {
+        public string Stock_code { get; set; }
+        public string Bulletin_date { get; set; }
+        public string Bulletin_title { get; set; }
+        public string Bulletin_file_url { get; set; }
+
+    }
+    /// <summary>
+    /// 这里是接口
+    /// </summary>
     interface IGetNewsPage
     {
-        void GetPageHtml(string urlpath);
+        void GetHuanqiuHtml(string urlpath);
+        
     }
-    class NewsSpider : IGetNewsPage
+    interface IGetSZJY
     {
-        /// <summary>
-        /// 获取环球网产经新闻的标题以及时间，链接
-        /// </summary>
-        void IGetNewsPage.GetPageHtml(string urlpath)
+        void GetSZJYHtml(string stockcode);
+    }
+    /// <summary>
+    /// 接口的实现
+    /// IGetNewsPage获取环球网产经新闻的标题以及时间，链接
+    /// IGetSZJY根据股票代码获取股票代码的新闻公告
+    /// </summary>
+    class NewsSpider : IGetNewsPage,IGetSZJY
+    {
+
+        void IGetNewsPage.GetHuanqiuHtml(string urlpath)
         {
             var url = @"http://finance.huanqiu.com/"+urlpath+"/";
             HtmlWeb web = new HtmlWeb();
@@ -34,12 +60,30 @@ namespace CSspider
                     Console.WriteLine($"标题：{title}\n新闻链接：{newsUrl}\n新闻时间：{newsTime}");
                     Console.WriteLine("======================================");
                     //还有写入数据库的功能要完成
-                }
-                
+                }                
             }
             else
             {
                 Console.WriteLine($"网络链接异常错误代码：{web.StatusCode}");
+            }            
+        }
+
+        void IGetSZJY.GetSZJYHtml(string stockcode)
+        {
+            HttpClient http = new HttpClient();
+            string url = @"http://www.sse.com.cn/js/common/stocks/new/"+stockcode+".js";
+            var respone = http.GetStringAsync(url).Result;
+            string pattern = @"{stock_code.*?}";
+            var matches = Regex.Matches(respone, pattern);
+            foreach (var item in matches)
+            {
+                var paresResult =JsonConvert.DeserializeObject<SZJYProject>(item.ToString());
+                Console.WriteLine($"股票代码：{paresResult.Stock_code}\n" +
+                                    $"新闻标题：{paresResult.Bulletin_title}\n" +
+                                    $"新闻PDF：{paresResult.Bulletin_file_url}" +
+                                    $"\n发布时间：{paresResult.Bulletin_date}");
+                Console.WriteLine("============================================");
+                //Console.WriteLine(a);
             }
             
         }

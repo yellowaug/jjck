@@ -1,0 +1,61 @@
+﻿@model IEnumerable<JJCKManager.Models.WebManagerAccount>
+
+@{
+    ViewBag.Title = "Web账号列表";
+}
+
+@*<p>
+    @Html.ActionLink("新建账号", "AddWebAcc")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountPassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebUrlORIPaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebAccountDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountPassWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebUrlORIPaddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebAccountDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CreateUser)
+        </td>*@
+        <td>
+           @* @Html.ActionLink("Edit", "UpWebacc", new { id=item.WaID }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.WaID }) |
+            @Html.ActionLink("Delete", "DeleteWebacc", new { id=item.WaID })
+        </td>
+    </tr>
+}
+
+</table>

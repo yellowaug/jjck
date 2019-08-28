@@ -4,11 +4,13 @@
     ViewBag.Title = "账号列表";
 }
 
-<h2>账号列表</h2>
 
-<p>
+<h2>账号列表</h2>
+@*现在登录的账号是：
+@ViewBag.loginname*@
+@*<p>
     @Html.ActionLink("添加新账号", "AddAcc")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -35,9 +37,9 @@
             @Html.DisplayFor(modelItem => item.Createdate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Uid }) |
+            @*@Html.ActionLink("Edit", "UpSysacc", new { id=item.Uid }) |*@
             @Html.ActionLink("Details", "AccDetalis", new { id=item.Uid }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Uid })
+            @Html.ActionLink("Delete", "DeleteSysacc", new { id=item.Uid })
         </td>
     </tr>
 }

@@ -11,10 +11,13 @@ namespace CSspider
     class Program
     {
         static void Main(string[] args)
-        {            
+        {
             IGetNewsPage newsPage = new NewsSpider();
-            newsPage.GetPageHtml("chanjing");
-            newsPage.GetPageHtml("jinr");
+            newsPage.GetHuanqiuHtml("chanjing");
+            newsPage.GetHuanqiuHtml("jinr");
+            IGetSZJY getSZJY = new NewsSpider();
+            getSZJY.GetSZJYHtml("601298");
+            getSZJY.GetSZJYHtml("900929");
             Console.ReadKey();
         }
     }
