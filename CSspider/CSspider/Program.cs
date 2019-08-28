@@ -12,9 +12,11 @@ namespace CSspider
     {
         static void Main(string[] args)
         {            
-            IGetNewsPage newsPage = new NewsSpider();
-            newsPage.GetPageHtml("chanjing");
-            newsPage.GetPageHtml("jinr");
+            //IGetNewsPage newsPage = new NewsSpider();
+            //newsPage.GetHuanqiuHtml("chanjing");
+            //newsPage.GetHuanqiuHtml("jinr");
+            IGetSZJY getSZJY = new NewsSpider();
+            getSZJY.GetSZJYHtml(@"http://www.sse.com.cn/js/common/stocks/new/601298.js?_=1566959045873");
             Console.ReadKey();
         }
     }
