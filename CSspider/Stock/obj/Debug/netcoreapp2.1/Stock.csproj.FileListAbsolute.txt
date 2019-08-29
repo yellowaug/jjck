@@ -34,5 +34,3 @@ D:\jjck\CSspider\Stock\obj\Debug\netcoreapp2.1\Stock.Views.pdb
 D:\jjck\CSspider\Stock\obj\Debug\netcoreapp2.1\Stock.csproj.CopyComplete
 D:\jjck\CSspider\Stock\obj\Debug\netcoreapp2.1\Stock.dll
 D:\jjck\CSspider\Stock\obj\Debug\netcoreapp2.1\Stock.pdb
-D:\jjck\CSspider\Stock\bin\Debug\netcoreapp2.1\DataAccess.Repository.dll
-D:\jjck\CSspider\Stock\bin\Debug\netcoreapp2.1\DataAccess.Repository.pdb

@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Entity", "DataAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.EntityFramework", "DataAccess.EntityFramework\DataAccess.EntityFramework.csproj", "{1BD3E6BD-4E11-47E3-9EF3-A4DA8966A401}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Repository", "DataAccess.Repository\DataAccess.Repository.csproj", "{3AC25E4A-939A-4626-BC07-DAF05BD553D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock", "Stock\Stock.csproj", "{A1703E2B-28D1-4EB9-9AE5-6095B00C9C53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock", "Stock\Stock.csproj", "{A1703E2B-28D1-4EB9-9AE5-6095B00C9C53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{1BD3E6BD-4E11-47E3-9EF3-A4DA8966A401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BD3E6BD-4E11-47E3-9EF3-A4DA8966A401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BD3E6BD-4E11-47E3-9EF3-A4DA8966A401}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AC25E4A-939A-4626-BC07-DAF05BD553D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AC25E4A-939A-4626-BC07-DAF05BD553D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AC25E4A-939A-4626-BC07-DAF05BD553D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AC25E4A-939A-4626-BC07-DAF05BD553D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A1703E2B-28D1-4EB9-9AE5-6095B00C9C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A1703E2B-28D1-4EB9-9AE5-6095B00C9C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1703E2B-28D1-4EB9-9AE5-6095B00C9C53}.Release|Any CPU.ActiveCfg = Release|Any CPU

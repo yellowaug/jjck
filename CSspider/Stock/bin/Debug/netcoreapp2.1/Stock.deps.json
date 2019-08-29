@@ -25,7 +25,6 @@
       "Stock/1.0.0": {
         "dependencies": {
           "DataAccess.EntityFramework": "1.0.0",
-          "DataAccess.Repository": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0"
@@ -353,18 +352,6 @@
         },
         "compile": {
           "DataAccess.EntityFramework.dll": {}
-        }
-      },
-      "DataAccess.Repository/1.0.0": {
-        "dependencies": {
-          "DataAccess.Entity": "1.0.0",
-          "DataAccess.EntityFramework": "1.0.0"
-        },
-        "runtime": {
-          "DataAccess.Repository.dll": {}
-        },
-        "compile": {
-          "DataAccess.Repository.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3354,11 +3341,6 @@
       "sha512": ""
     },
     "DataAccess.EntityFramework/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "DataAccess.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

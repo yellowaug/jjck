@@ -1,5 +1,6 @@
 ﻿using DataAccess.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,12 @@ namespace DataAccess.EntityFramework
 {
     public class BaseDbContext : DbContext
     {
-        public BaseDbContext(DbContextOptions options)
-      : base(options) {}
+      //  public BaseDbContext(DbContextOptions options)
+      //: base(options) {}
+
+        public BaseDbContext()
+     : base() {}
+
 
         /// <summary>
         /// 新闻表
@@ -27,37 +32,23 @@ namespace DataAccess.EntityFramework
         /// </summary>
         public DbSet<Dividend>  Dividends { get; set; }
 
-        public override int SaveChanges()
+
+
+
+
+    //创建日志工厂
+    private static ILoggerFactory Mlogger => new LoggerFactory()
+                 .AddDebug((categoryName, logLevel) => (logLevel == LogLevel.Information) && (categoryName == DbLoggerCategory.Database.Command.Name))
+                .AddConsole((categoryName, logLevel) => (logLevel == LogLevel.Information) && (categoryName == DbLoggerCategory.Database.Command.Name));
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            foreach (var entry in ChangeTracker.Entries())
-            {
-                switch (entry.State)
-                {
-                    //新增
-                    case EntityState.Added:
-                        entry.CurrentValues["ID"] = Guid.NewGuid();
-                        entry.CurrentValues["CreateDateTime"] = DateTime.Now;    //创建时间
-                        break;
-
-                    //删除
-                    case EntityState.Deleted:
-                        entry.State = EntityState.Unchanged;
-                        entry.CurrentValues["IsDelete"] = true;                  //软删除
-                        entry.CurrentValues["UpdateDateTime"] = DateTime.Now;    //更新时间
-                        break;
+            var loggerFactory =
+            optionsBuilder
+                .UseLoggerFactory(Mlogger); //注入日志工厂
 
 
-                    //修改
-                    case EntityState.Modified:
-                        entry.Property("CreateDateTime").IsModified = false;    //创建时间不允许修改
-                        entry.CurrentValues["UpdateDateTime"] = DateTime.Now;   //更新时间
-                        break;
-
-                }
-            }
-
-            return base.SaveChanges();
+            optionsBuilder.UseSqlServer(@"Data Source=10.12.2.6; Initial Catalog=HrzTest; Uid=sa; Pwd=Jingjia@2@20; App=EntityFramework;");
         }
     }
 }
