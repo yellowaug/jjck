@@ -33,12 +33,15 @@ namespace Stock
             });
           
             //注入EF上下文
-            services.AddDbContext<WriteDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("WriteDbConnection")));
-            services.AddDbContext<ReadDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ReadDbConnection_1")));
+            //services.AddDbContext<BaseDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("WriteDbConnection")));
+            services.AddScoped<BaseDbContext, BaseDbContext>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

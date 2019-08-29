@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Entity;
 using DataAccess.EntityFramework;
-using DataAccess.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Stock.Models;
 
@@ -13,8 +12,15 @@ namespace Stock.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index([FromServices]BaseRepository<New,Guid>  newBaseRepository)
+        public HomeController(BaseDbContext baseDbContext)
         {
+
+        }
+
+        public IActionResult Index()
+
+        {
+            
             return View();
         }
 
