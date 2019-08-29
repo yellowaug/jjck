@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {}
+    "D:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {}
   },
   "projects": {
-    "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+    "D:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "projectUniqueName": "D:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
         "projectName": "DataAccess.EntityFramework",
-        "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
+        "projectPath": "D:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "packagesPath": "C:\\Users\\oo\\.nuget\\packages\\",
+        "outputPath": "D:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-                "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+              "D:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+                "projectPath": "D:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
               }
             }
           }
@@ -68,20 +68,20 @@
         }
       }
     },
-    "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+    "D:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "projectUniqueName": "D:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
         "projectName": "DataAccess.Entity",
-        "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
+        "projectPath": "D:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "packagesPath": "C:\\Users\\oo\\.nuget\\packages\\",
+        "outputPath": "D:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

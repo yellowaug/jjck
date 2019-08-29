@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {}
+    "D:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {}
   },
   "projects": {
-    "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {
+    "D:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+        "projectUniqueName": "D:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
         "projectName": "CSspider",
-        "projectPath": "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\jjck\\CSspider\\CSspider\\obj\\",
+        "projectPath": "D:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+        "packagesPath": "C:\\Users\\oo\\.nuget\\packages\\",
+        "outputPath": "D:\\jjck\\CSspider\\CSspider\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -8,7 +8,7 @@ namespace DataAccess.Entity
     /// <summary>
     /// 分红
     /// </summary>
-    public class Dividend : BaseEntity<Guid>
+    public class Dividend : BaseEntity
     {
 
         /// <summary>

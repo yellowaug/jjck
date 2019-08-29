@@ -7,7 +7,7 @@ namespace DataAccess.Entity
     /// <summary>
     /// 股票
     /// </summary>
-    public class Stock  :BaseEntity<Guid>
+    public class Stock  :BaseEntity
     {
 
         /// <summary>
