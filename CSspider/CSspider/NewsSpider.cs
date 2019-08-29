@@ -7,7 +7,9 @@ using System.Net;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using DataAccess.Entity;
+using DataAccess.EntityFramework;
+
 
 namespace CSspider
 {
@@ -41,9 +43,11 @@ namespace CSspider
     /// </summary>
     class NewsSpider : IGetNewsPage,IGetSZJY
     {
-
+        
+        private BaseDbContext db = new BaseDbContext();
         void IGetNewsPage.GetHuanqiuHtml(string urlpath)
         {
+            
             var url = @"http://finance.huanqiu.com/"+urlpath+"/";
             HtmlWeb web = new HtmlWeb();
             var doc = web.Load(url);
@@ -60,7 +64,15 @@ namespace CSspider
                     Console.WriteLine($"标题：{title}\n新闻链接：{newsUrl}\n新闻时间：{newsTime}");
                     Console.WriteLine("======================================");
                     //还有写入数据库的功能要完成
-                }                
+                    New huanqiuNews = new New();
+                    huanqiuNews.Tite = title;
+                    huanqiuNews.ContentUri = newsUrl;
+                    huanqiuNews.ReleaseTime = DateTime.Parse(newsTime);
+                    db.News.Add(huanqiuNews);
+                }
+                //db.Database.EnsureCreated();
+                
+                db.SaveChanges();
             }
             else
             {
@@ -83,9 +95,16 @@ namespace CSspider
                                     $"新闻PDF：{paresResult.Bulletin_file_url}" +
                                     $"\n发布时间：{paresResult.Bulletin_date}");
                 Console.WriteLine("============================================");
+                New sseNews = new New();
+                sseNews.Stock = new Stock { Code = paresResult.Stock_code };
+                sseNews.Tite = paresResult.Bulletin_title;
+                sseNews.ContentUri = @"http://www.sse.com.cn" + paresResult.Bulletin_file_url;
+                sseNews.ReleaseTime = DateTime.Parse(paresResult.Bulletin_date);
+                db.News.Add(sseNews);
                 //Console.WriteLine(a);
             }
-            
+            db.SaveChanges();
+
         }
     }
 }

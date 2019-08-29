@@ -2,5 +2,5 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
+/CSspider/.vs/CSspider/v16/Server/sqlite3/db.lock
 /CSspider/.vs/CSspider/v16
-/Adafruit_Python_DHT/.idea
