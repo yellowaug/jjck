@@ -14,7 +14,6 @@ E:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.runtimeconfig.json
 E:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.runtimeconfig.dev.json
 E:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.dll
 E:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\CSspider.pdb
-E:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csprojAssemblyReference.cache
 E:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csproj.CoreCompileInputs.cache
 E:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfoInputs.cache
 E:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfo.cs
