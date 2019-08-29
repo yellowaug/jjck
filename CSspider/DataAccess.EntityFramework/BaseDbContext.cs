@@ -48,7 +48,7 @@ namespace DataAccess.EntityFramework
                 .UseLoggerFactory(Mlogger); //注入日志工厂
 
 
-            optionsBuilder.UseSqlServer(@"Data Source=10.12.2.6; Initial Catalog=HrzTest; Uid=sa; Pwd=Jingjia@2@20; App=EntityFramework;");
+            optionsBuilder.UseSqlServer(@"Data Source=127.0.0.1; Initial Catalog=Spider; Uid=sa; Pwd=sa; App=EntityFramework;");
         }
     }
 }

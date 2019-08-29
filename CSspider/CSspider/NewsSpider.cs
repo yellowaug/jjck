@@ -7,7 +7,9 @@ using System.Net;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using DataAccess.Entity;
+using DataAccess.EntityFramework;
+
 
 namespace CSspider
 {
@@ -41,9 +43,11 @@ namespace CSspider
     /// </summary>
     class NewsSpider : IGetNewsPage,IGetSZJY
     {
-
+        private New huanqiuNews = new New();
+        private BaseDbContext db = new BaseDbContext();
         void IGetNewsPage.GetHuanqiuHtml(string urlpath)
         {
+            
             var url = @"http://finance.huanqiu.com/"+urlpath+"/";
             HtmlWeb web = new HtmlWeb();
             var doc = web.Load(url);
@@ -60,7 +64,13 @@ namespace CSspider
                     Console.WriteLine($"标题：{title}\n新闻链接：{newsUrl}\n新闻时间：{newsTime}");
                     Console.WriteLine("======================================");
                     //还有写入数据库的功能要完成
-                }                
+                    huanqiuNews.Tite = title;
+                    huanqiuNews.ContentUri = newsUrl;
+                    huanqiuNews.ReleaseTime = DateTime.Parse(newsTime);
+                }
+                db.Database.EnsureCreated();
+                db.News.Add(huanqiuNews);
+                db.SaveChanges();
             }
             else
             {
