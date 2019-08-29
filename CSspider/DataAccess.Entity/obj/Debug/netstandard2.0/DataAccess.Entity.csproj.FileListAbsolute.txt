@@ -32,4 +32,3 @@ D:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.As
 D:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csproj.CopyComplete
 D:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.dll
 D:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.pdb
-D:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csprojAssemblyReference.cache

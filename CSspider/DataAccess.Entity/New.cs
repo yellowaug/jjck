@@ -7,7 +7,7 @@ namespace DataAccess.Entity
     /// <summary>
     /// 新闻
     /// </summary>
-    public class New :BaseEntity<Guid>
+    public class New :BaseEntity
     {
         /// <summary>
         /// 标题
