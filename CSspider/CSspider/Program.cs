@@ -12,12 +12,16 @@ namespace CSspider
     {
         static void Main(string[] args)
         {
+            IupLoadSql loadSql = new SqlContron();
             IGetNewsPage newsPage = new NewsSpider();
-            newsPage.GetHuanqiuHtml("chanjing");
-            newsPage.GetHuanqiuHtml("jinr");
+            var huanqiu= newsPage.GetHuanqiuHtml("chanjing");
+            loadSql.UptoSql(huanqiu);
+            var jinrong=newsPage.GetHuanqiuHtml("jinr");
+            loadSql.UptoSql(jinrong);
             IGetSZJY getSZJY = new NewsSpider();
-            getSZJY.GetSZJYHtml("601298");
-            getSZJY.GetSZJYHtml("900929");
+            var qdg=getSZJY.GetSZJYHtml("601298");
+            loadSql.UptoSql(qdg);
+            //getSZJY.GetSZJYHtml("900929");
             Console.ReadKey();
         }
     }

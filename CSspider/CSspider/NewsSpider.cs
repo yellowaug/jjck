@@ -29,13 +29,21 @@ namespace CSspider
     /// </summary>
     interface IGetNewsPage
     {
-        void GetHuanqiuHtml(string urlpath);
+        List<New> GetHuanqiuHtml(string urlpath);
         
     }
     interface IGetSZJY
     {
-        void GetSZJYHtml(string stockcode);
+        List<New> GetSZJYHtml(string stockcode);
     }
+    /// <summary>
+    /// 写入数据库的接口
+    /// </summary>
+    interface IupLoadSql
+    {
+        void UptoSql(List<New> newsList);
+    }
+
     /// <summary>
     /// 接口的实现
     /// IGetNewsPage获取环球网产经新闻的标题以及时间，链接
@@ -44,10 +52,10 @@ namespace CSspider
     class NewsSpider : IGetNewsPage,IGetSZJY
     {
         
-        private BaseDbContext db = new BaseDbContext();
-        void IGetNewsPage.GetHuanqiuHtml(string urlpath)
+        //private BaseDbContext db = new BaseDbContext();
+        List<New> IGetNewsPage.GetHuanqiuHtml(string urlpath)
         {
-            
+            List<New> newsList = new List<New>();
             var url = @"http://finance.huanqiu.com/"+urlpath+"/";
             HtmlWeb web = new HtmlWeb();
             var doc = web.Load(url);
@@ -64,24 +72,27 @@ namespace CSspider
                     Console.WriteLine($"标题：{title}\n新闻链接：{newsUrl}\n新闻时间：{newsTime}");
                     Console.WriteLine("======================================");
                     //还有写入数据库的功能要完成
-                    New huanqiuNews = new New();
+                    New huanqiuNews = new New();                   
                     huanqiuNews.Tite = title;
                     huanqiuNews.ContentUri = newsUrl;
                     huanqiuNews.ReleaseTime = DateTime.Parse(newsTime);
-                    db.News.Add(huanqiuNews);
+                    newsList.Add(huanqiuNews);
+                    //db.News.Add(huanqiuNews);
                 }
                 //db.Database.EnsureCreated();
+                return newsList;
                 
-                db.SaveChanges();
             }
             else
             {
                 Console.WriteLine($"网络链接异常错误代码：{web.StatusCode}");
+                return null ;
             }            
         }
 
-        void IGetSZJY.GetSZJYHtml(string stockcode)
+        List<New> IGetSZJY.GetSZJYHtml(string stockcode)
         {
+            List<New> newsSSEList = new List<New>();
             HttpClient http = new HttpClient();
             string url = @"http://www.sse.com.cn/js/common/stocks/new/"+stockcode+".js";
             var respone = http.GetStringAsync(url).Result;
@@ -100,11 +111,51 @@ namespace CSspider
                 sseNews.Tite = paresResult.Bulletin_title;
                 sseNews.ContentUri = @"http://www.sse.com.cn" + paresResult.Bulletin_file_url;
                 sseNews.ReleaseTime = DateTime.Parse(paresResult.Bulletin_date);
-                db.News.Add(sseNews);
+                newsSSEList.Add(sseNews);
+                //db.News.Add(sseNews);
                 //Console.WriteLine(a);
             }
-            db.SaveChanges();
+            return newsSSEList;
+            //db.SaveChanges();
 
+        }
+    }
+    /// <summary>
+    /// 这个类是关于数据库操作的类
+    /// </summary>
+    class SqlContron : IupLoadSql
+    {
+        private BaseDbContext db = new BaseDbContext();
+
+
+
+        /// <summary>
+        /// 向数据库传入数据
+        /// </summary>
+        /// <param name="newsList"></param>
+        void IupLoadSql.UptoSql(List<New> newsList)
+        {
+            DateTime todaytime = DateTime.Now;                      
+            var timestring=todaytime.ToString("yyyy-MM-dd");
+            foreach (var item in newsList)
+            {                              
+                var newstimestring = item.ReleaseTime.ToString("yyyy-MM-dd");
+                int code = String.Compare(timestring, newstimestring);
+                Console.WriteLine($"P{code}");
+                int existCode=db.News.Where(nlist => nlist.Tite == item.Tite).Count();
+                if (code==0&&existCode==0)
+                {
+                    db.News.Add(item);
+                    Console.WriteLine("当天的新闻写入成功");
+                }
+                else
+                {
+
+                    Console.WriteLine("该新闻是昨天的新闻");
+                }
+                
+            }
+            db.SaveChanges();
         }
     }
 }
