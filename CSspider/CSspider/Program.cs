@@ -22,6 +22,8 @@ namespace CSspider
             var qdg=getSZJY.GetSZJYHtml("601298");
             loadSql.UptoSql(qdg);
             //getSZJY.GetSZJYHtml("900929");
+            DividendSpider spider = new DividendSpider();
+            spider.Get();
             Console.ReadKey();
         }
     }

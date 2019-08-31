@@ -34,12 +34,15 @@ namespace CSspider
 
             //解析xml
             var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(xml.ToString());
+            htmlDoc.LoadHtml(xml.ToString());            
             var ths = htmlDoc.DocumentNode.SelectNodes("//tr[@tablesorterdivider]").ToList();
+            var nodeinfo = htmlDoc.DocumentNode.SelectNodes("//tr/td[@class='left noWrap']");
+            Console.WriteLine(nodeinfo);
+            var nodeinfo1 = htmlDoc.DocumentNode.SelectNodes("/td[@class='left noWrap']/td");
             var table = htmlDoc.DocumentNode.SelectNodes("//tr").ToList();
             var trs = table.Except(ths).ToList();
 
-
+            Console.WriteLine(trs);
 
             //保存到数据库
             //BaseDbContext baseDbContext = new BaseDbContext();
