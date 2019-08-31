@@ -18,6 +18,14 @@ namespace CSspider
             IGetSZJY getSZJY = new NewsSpider();
             getSZJY.GetSZJYHtml("601298");
             getSZJY.GetSZJYHtml("900929");
+
+
+
+            DividendSpider dividendSpider = new DividendSpider();
+            dividendSpider.Get();
+
+            QuoteSpider quoteSpider = new QuoteSpider();
+            quoteSpider.Get("600518",DateTime.Parse("2019-08-28"));
             Console.ReadKey();
         }
     }

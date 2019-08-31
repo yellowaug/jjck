@@ -29,3 +29,13 @@ D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfoInputs.ca
 D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.AssemblyInfo.cs
 D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.dll
 D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.pdb
+D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csprojAssemblyReference.cache
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\DataAccess.Entity.dll
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\DataAccess.EntityFramework.dll
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Debug.dll
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Console.dll
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\DataAccess.EntityFramework.pdb
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\DataAccess.Entity.pdb
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Debug.xml
+D:\jjck\CSspider\CSspider\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Console.xml
+D:\jjck\CSspider\CSspider\obj\Debug\netcoreapp2.1\CSspider.csproj.CopyComplete
