@@ -20,7 +20,7 @@ namespace CSspider
             var HttpContent = new FormUrlEncodedContent(new Dictionary<string, string>
                     {
                         { "country[]", "37"},
-                        { "dateFrom", "2019-08-28"},
+                        { "dateFrom", "2019-08-1"},
                         { "dateTo", "2019-08-31"},
                         { "currentTab", "custom"},
                         { "limit_from", "0"}
@@ -34,16 +34,26 @@ namespace CSspider
 
             //解析xml
             var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(xml.ToString());            
-            var ths = htmlDoc.DocumentNode.SelectNodes("//tr[@tablesorterdivider]").ToList();
-            var nodeinfo = htmlDoc.DocumentNode.SelectNodes("//tr/td[@class='left noWrap']");
-            Console.WriteLine(nodeinfo);
-            var nodeinfo1 = htmlDoc.DocumentNode.SelectNodes("/td[@class='left noWrap']/td");
-            var table = htmlDoc.DocumentNode.SelectNodes("//tr").ToList();
-            var trs = table.Except(ths).ToList();
+            htmlDoc.LoadHtml(xml.ToString());
+            var companyName = htmlDoc.DocumentNode.SelectNodes("//td[@class='left noWrap']");
+            var publicDate= htmlDoc.DocumentNode.SelectNodes("//td[3]");
+            var dividend = htmlDoc.DocumentNode.SelectNodes("//td[4]");
+            var endDate= htmlDoc.DocumentNode.SelectNodes("//td[6]");
+            var rateOfReturn= htmlDoc.DocumentNode.SelectNodes("//td[7]");
+            for (int i = 0; i < companyName.Count; i++)
+            {
+                Console.WriteLine("==================================");
+                Console.WriteLine($"公司名称：{companyName[i].Attributes["title"].Value},\n除息日：{publicDate[i].InnerText},\n股息：{dividend[i].InnerText}，\n付息日：{endDate[i].InnerText}，\n收益率：{rateOfReturn[i].InnerText}。");
+            }
 
-            Console.WriteLine(trs);
 
+
+
+
+            #region HRZ的代码
+            //var trs = table.Except(ths).ToList();
+            //var ths = htmlDoc.DocumentNode.SelectNodes("//tr[@tablesorterdivider]").ToList();
+            //var nodeinfo = htmlDoc.DocumentNode.SelectNodes("//tr");
             //保存到数据库
             //BaseDbContext baseDbContext = new BaseDbContext();
             //for (int i = 0; i < trs.Count(); i++)
@@ -78,7 +88,9 @@ namespace CSspider
             //    dividend.Stock = stock;
             //    baseDbContext.Add(dividend);
             //}
-           // baseDbContext.SaveChanges();
+            // baseDbContext.SaveChanges();
+            #endregion
+
         }
     }
 }

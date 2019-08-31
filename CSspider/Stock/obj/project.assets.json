@@ -11841,11 +11841,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\jjck\\CSspider\\Stock\\Stock.csproj",
+      "projectUniqueName": "H:\\jjck\\CSspider\\Stock\\Stock.csproj",
       "projectName": "Stock",
-      "projectPath": "E:\\jjck\\CSspider\\Stock\\Stock.csproj",
+      "projectPath": "H:\\jjck\\CSspider\\Stock\\Stock.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\jjck\\CSspider\\Stock\\obj\\",
+      "outputPath": "H:\\jjck\\CSspider\\Stock\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11864,8 +11864,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
-              "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
+            "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+              "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
             }
           }
         }
@@ -11891,6 +11891,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

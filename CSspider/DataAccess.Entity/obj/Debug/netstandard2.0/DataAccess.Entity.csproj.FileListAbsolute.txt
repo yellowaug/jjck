@@ -44,3 +44,15 @@ E:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.As
 E:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csproj.CopyComplete
 E:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.dll
 E:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.pdb
+H:\jjck\CSspider\DataAccess.Entity\bin\Debug\netstandard2.0\DataAccess.Entity.deps.json
+H:\jjck\CSspider\DataAccess.Entity\bin\Debug\netstandard2.0\DataAccess.Entity.dll
+H:\jjck\CSspider\DataAccess.Entity\bin\Debug\netstandard2.0\DataAccess.Entity.pdb
+H:\jjck\CSspider\DataAccess.Entity\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+H:\jjck\CSspider\DataAccess.Entity\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csprojAssemblyReference.cache
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csproj.CoreCompileInputs.cache
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.AssemblyInfoInputs.cache
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.AssemblyInfo.cs
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.csproj.CopyComplete
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.dll
+H:\jjck\CSspider\DataAccess.Entity\obj\Debug\netstandard2.0\DataAccess.Entity.pdb

@@ -142,7 +142,7 @@ namespace CSspider
                 var newstimestring = item.ReleaseTime.ToString("yyyy-MM-dd");
                 int code = String.Compare(timestring, newstimestring);
                 Console.WriteLine($"P{code}");
-                db.Database.EnsureCreated();
+                //db.Database.EnsureCreated(); //如果是数据库发生变更，放开这行
                 int existCode=db.News.Where(nlist => nlist.Tite == item.Tite).Count();
                 if (code==0&&existCode==0)
                 {
