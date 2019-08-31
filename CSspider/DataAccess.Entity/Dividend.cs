@@ -24,7 +24,7 @@ namespace DataAccess.Entity
         /// <summary>
         /// 除权日、分红日
         /// </summary>
-        public DateTime DividendDay { get; set; } 
+        public DateTime DividendDate { get; set; } 
         
         
         /// <summary>
@@ -33,10 +33,21 @@ namespace DataAccess.Entity
         public decimal Amount { get; set; }
 
         /// <summary>
+        /// 收益率
+        /// </summary>
+        public string RateOfReturn { get; set; }
+
+        /// <summary>
         /// 股票
         /// </summary>
         public Stock  Stock { get; set; }
 
-       
+
+        /// <summary>
+        /// 分红期间股票行情
+        /// </summary>
+        public ICollection<Quote> Quotes { get; set; }
+
+
     }
 }

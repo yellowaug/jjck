@@ -4,14 +4,16 @@ using DataAccess.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.EntityFramework.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190831035612_201908311156")]
+    partial class _201908311156
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,8 +77,6 @@ namespace DataAccess.EntityFramework.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("DividendID");
-
                     b.Property<decimal>("EndPrice");
 
                     b.Property<decimal>("MaxPrice");
@@ -85,13 +85,15 @@ namespace DataAccess.EntityFramework.Migrations
 
                     b.Property<decimal>("StartPrice");
 
+                    b.Property<int?>("StockID");
+
                     b.Property<string>("TurnoverRate");
 
                     b.Property<double>("Volume");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DividendID");
+                    b.HasIndex("StockID");
 
                     b.ToTable("Quotes");
                 });
@@ -127,9 +129,9 @@ namespace DataAccess.EntityFramework.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.Quote", b =>
                 {
-                    b.HasOne("DataAccess.Entity.Dividend")
+                    b.HasOne("DataAccess.Entity.Stock")
                         .WithMany("Quotes")
-                        .HasForeignKey("DividendID");
+                        .HasForeignKey("StockID");
                 });
 #pragma warning restore 612, 618
         }
