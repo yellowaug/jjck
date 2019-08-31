@@ -21,9 +21,6 @@ namespace DataAccess.Entity
         /// </summary>
         public string Name { get; set; }
 
-        /// <summary>
-        /// 创建时的价格
-        /// </summary>
-        public decimal Price { get; set; }
+        public ICollection<Quote> Quotes { get; set; }
     }
 }

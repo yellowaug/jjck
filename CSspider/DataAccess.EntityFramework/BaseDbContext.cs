@@ -32,6 +32,11 @@ namespace DataAccess.EntityFramework
         /// </summary>
         public DbSet<Dividend>  Dividends { get; set; }
 
+        /// <summary>
+        /// 行情表（价格表）
+        /// </summary>
+        public DbSet<Quote>   Quotes { get; set; }
+
 
 
 
