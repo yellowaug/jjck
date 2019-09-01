@@ -14,6 +14,8 @@ namespace CSspider
         {
             IupLoadSql loadSql = new SqlContron();
             IGetNewsPage newsPage = new NewsSpider();
+            IDividendSpider dividendSpider = new DividendSpider();
+            IInserIntoSql intoSql = new UpLoadSql();
             var huanqiu= newsPage.GetHuanqiuHtml("chanjing");
             loadSql.UptoSql(huanqiu);
             var jinrong=newsPage.GetHuanqiuHtml("jinr");
@@ -22,8 +24,9 @@ namespace CSspider
             var qdg=getSZJY.GetSZJYHtml("601298");
             loadSql.UptoSql(qdg);
             //getSZJY.GetSZJYHtml("900929");
-            DividendSpider spider = new DividendSpider();
-            spider.Get();
+            //=============================
+            var ywcq = dividendSpider.GetDividendReport("2019-08-01", "2019-09-01");
+            intoSql.InserIntoSql(ywcq);           
             Console.ReadKey();
         }
     }
