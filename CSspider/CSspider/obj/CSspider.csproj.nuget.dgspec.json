@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {}
+    "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {}
   },
   "projects": {
-    "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {
+    "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
         "projectName": "CSspider",
-        "projectPath": "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\CSspider\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\CSspider\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,11 +30,11 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
-                "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
+              "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+                "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
               },
-              "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-                "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+              "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+                "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
               }
             }
           }
@@ -53,7 +53,6 @@
               "version": "[1.11.12, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -71,14 +70,14 @@
         }
       }
     },
-    "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+    "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
         "projectName": "DataAccess.EntityFramework",
-        "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -97,8 +96,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-                "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+              "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+                "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
               }
             }
           }
@@ -135,14 +134,14 @@
         }
       }
     },
-    "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+    "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
         "projectName": "DataAccess.Entity",
-        "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

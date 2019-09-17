@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\jjck\\CSspider\\Stock\\Stock.csproj": {}
+    "E:\\jjck\\CSspider\\Stock\\Stock.csproj": {}
   },
   "projects": {
-    "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+    "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
         "projectName": "DataAccess.EntityFramework",
-        "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-                "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+              "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+                "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+    "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
         "projectName": "DataAccess.Entity",
-        "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -120,14 +120,14 @@
         }
       }
     },
-    "H:\\jjck\\CSspider\\Stock\\Stock.csproj": {
+    "E:\\jjck\\CSspider\\Stock\\Stock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\jjck\\CSspider\\Stock\\Stock.csproj",
+        "projectUniqueName": "E:\\jjck\\CSspider\\Stock\\Stock.csproj",
         "projectName": "Stock",
-        "projectPath": "H:\\jjck\\CSspider\\Stock\\Stock.csproj",
+        "projectPath": "E:\\jjck\\CSspider\\Stock\\Stock.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "H:\\jjck\\CSspider\\Stock\\obj\\",
+        "outputPath": "E:\\jjck\\CSspider\\Stock\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -146,8 +146,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
-                "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
+              "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+                "projectPath": "E:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
               }
             }
           }
@@ -173,7 +173,6 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true

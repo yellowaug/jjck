@@ -55,13 +55,46 @@ namespace JJCKsqlback
                 logfile.CreateLogFile($"\n备份语句{itemDblist.SQLShell}\t备份开始时间{begenTime}\t备份结束时间{endTime}");
                 logfile.CreateLogFile("\n============================================");
             }
-
             //currentPath.SetPath(path);
             ///<summary>
             ///关闭数据库连接，回收资源
             ///</summary>
             ICloseConnection close = new DataBase();
             close.Closeconnection(connection);
+
+
+        }
+        public void DataBaseRevert()
+        {
+            ///<summary>
+            ///连接数据库
+            ///</summary>
+            IConnectionDb connectionDb = new DataBase();
+            var connection = connectionDb.InitConnection();
+            ///<summary>
+            ///生成备份语句
+            ///string[] backdblist 这个是要备份的数据库名称的数组，一般改这就好了
+            ///</summary>
+            //string[] backdblist = { "aspnetdb", "JJ_Communication", "JJ_Sale", "JJ_System", "JJlinshi" };
+            string[] backdblist = { "Account", "Book", "EFtest" };
+            IGetDbList getDbList = new DataBase();
+            var dbList = getDbList.GetDbrevert(connection, @"E:\testbackup", backdblist);
+            ///<summary>
+            ///创建自动备份程序
+            ///</summary>
+            IAutoBackUp autoBack = new DataBase();
+            foreach (var itemDblist in dbList)
+            {
+                DateTime begenTime = DateTime.Now;
+                autoBack.AutoRevert(itemDblist, connection);
+                //DateTime endTime = DateTime.Now;
+                //var usetime = begenTime - endTime;
+                //Console.WriteLine($"数据库备份所用时间{usetime}");//计算所用时间
+                //logfile.CreateLogFile("\n============================================");
+                //logfile.CreateLogFile($"\n备份数据库{itemDblist.DbName}\t备份路径以及文件名称{itemDblist.PathAndFileName}\t数据库备份所用时间{usetime}");
+                //logfile.CreateLogFile($"\n备份语句{itemDblist.SQLShell}\t备份开始时间{begenTime}\t备份结束时间{endTime}");
+                //logfile.CreateLogFile("\n============================================");
+            }
         }
         public void Test()
         {
