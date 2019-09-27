@@ -1,0 +1,7 @@
+F:\sharpdemo\netSockServer\netSockServer\bin\Debug\netSockServer.exe.config
+F:\sharpdemo\netSockServer\netSockServer\bin\Debug\netSockServer.exe
+F:\sharpdemo\netSockServer\netSockServer\bin\Debug\netSockServer.pdb
+F:\sharpdemo\netSockServer\netSockServer\obj\Debug\netSockServer.csprojAssemblyReference.cache
+F:\sharpdemo\netSockServer\netSockServer\obj\Debug\netSockServer.csproj.CoreCompileInputs.cache
+F:\sharpdemo\netSockServer\netSockServer\obj\Debug\netSockServer.exe
+F:\sharpdemo\netSockServer\netSockServer\obj\Debug\netSockServer.pdb
