@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace SocketClient
+namespace JJCKsqlback
 {
     /// <summary>
     /// 存储文件名列表，文件大小列表，数据包列表
@@ -24,9 +24,13 @@ namespace SocketClient
     /// <summary>
     /// 读取文件夹中有多少文件的接口
     /// </summary>
-    public interface IEumFiles
+    public interface ISockEumFiles
     {
         IEnumerable<FileInfo> EumFile(string folderPath);
+    }
+    public interface IFolder
+    {
+        string CreateFolderPath(string diskPath);
     }
     /// <summary>
     /// 读取文件内容封装成数据包的接口
@@ -35,10 +39,32 @@ namespace SocketClient
     {
         FilePack ReadFile(IEnumerable<FileInfo> filePathlist);
     }
-    public class FolderAction : IEumFiles, IReadFile
+    public class FolderAction : ISockEumFiles, IReadFile,IFolder
     {
+        /// <summary>
+        /// 根据当天的日期生成要获取的文件夹名称
+        /// </summary>
+        /// <param name="diskPath">要扫描的路径</param>
+        /// <returns>返回路径名称</returns>
+        string IFolder.CreateFolderPath(string diskPath)
+        {
+            string getDate = DateTime.Now.Date.ToString("yyyyMMdd");
+            Console.WriteLine($"获取到的日期是{getDate}");
+            string folderName = String.Format($"{getDate}T030000");
+            Console.WriteLine($"生成的文件名为{folderName}");
+            string path = Path.Combine(diskPath, folderName);
+            var existsFolder = Directory.Exists(path);
+            if (existsFolder==true)
+            {
+                return path;
+            }
+            else
+            {
+                return "文件夹不存在";
+            }
+        }
 
-        IEnumerable<FileInfo> IEumFiles.EumFile(string folderPath)
+        IEnumerable<FileInfo> ISockEumFiles.EumFile(string folderPath)
         {
             DirectoryInfo directory = new DirectoryInfo(folderPath);
             var fileinfoEnu = directory.EnumerateFiles();
@@ -56,6 +82,9 @@ namespace SocketClient
             }
             return fileinfoEnu;
         }
+
+
+
         //将大文件切割成1024字节大小的小数据包，因为TCP/IP传输的数据包大小是有限制的
         FilePack IReadFile.ReadFile(IEnumerable<FileInfo> filePathlist)
         {

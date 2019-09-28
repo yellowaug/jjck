@@ -35,8 +35,8 @@ namespace JJCKsqlback
         
         string ICreateFolder.Create(string filePath)
         {
-            DateTime dt = new DateTime();
-            dt = DateTime.Now;
+            DateTime dt = DateTime.Now;
+            //dt = DateTime.Now;
             string folderName= filePath;
             string timeFull = dt.ToString("yyyyMMddTHHmmss");
             string pathStr = Path.Combine(folderName, timeFull);

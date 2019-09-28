@@ -41,10 +41,24 @@ namespace JJCKsqlback
             //}
             #endregion
             #region 这段代码是自动还原数据库的
-            SqlAction action = new SqlAction();
-            action.DataBaseRevert();
+            //SqlAction action = new SqlAction();
+            //action.DataBaseRevert();
             #endregion
-
+            #region 这段代码是SOCKET客户端获取文件，发送文件的代码
+            IFolder folderAction = new FolderAction();
+            ISockEumFiles eumFiles = new FolderAction();
+            IReadFile read = new FolderAction();
+            var floderPath=folderAction.CreateFolderPath(@"f:\test");
+            Console.WriteLine("生产的文件路径{0}",floderPath);
+            var socketfilePath=eumFiles.EumFile(floderPath);
+            foreach (var item in socketfilePath)
+            {
+                Console.WriteLine("获取到的文件名称{0}",item.FullName);
+            }
+            var socketfilePack = read.ReadFile(socketfilePath);
+            SClient client = new SClient();
+            client.Client(socketfilePack, new HostInfo { Port = 2000, ServerHost = "127.0.0.1" });
+            #endregion
             Console.ReadKey();
 
 

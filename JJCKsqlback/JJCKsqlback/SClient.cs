@@ -6,15 +6,28 @@ using System.Text;
 using System.IO;
 using System.Threading;
 
-namespace SocketClient
+namespace JJCKsqlback
 {
-    class SClient
+    public class HostInfo
     {
-        public void Client(FilePack filepackInfos)
+        public int Port { get; set; }
+        public string ServerHost { get; set; }
+    }
+    /// <summary>
+    /// socket客户端类
+    /// </summary>
+    public class SClient
+    {
+        /// <summary>
+        /// 客户端方法，实现连接服务端，发送数据库文件到服务端的功能
+        /// </summary>
+        /// <param name="filepackInfos">自定义的数据包属性类，里面包含文件名，文件大小，文件数据包</param>
+        /// <param name="hostInfo">自定义的服务端属性类，里面包含IP以及端口</param>
+        public void Client(FilePack filepackInfos,HostInfo hostInfo)
         {
             //配置Sock连接信息
-            int port = 2000;
-            string host = "127.0.0.1";
+            int port = hostInfo.Port;
+            string host = hostInfo.ServerHost;
             IPAddress ip = IPAddress.Parse(host);
             IPEndPoint iPEnd = new IPEndPoint(ip, port);
             Socket sendFileCount = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -26,7 +39,6 @@ namespace SocketClient
             Console.WriteLine("文件个数发送完成");
             //for (int i = 0; i < filepackInfos.FileName.Count; i++)
             //{
-
             //    发送文件名
             //    byte[] packFileName = new ASCIIEncoding().GetBytes(filepackInfos.FileName[i]);
             //    c.Send(packFileName, packFileName.Length, 0);
@@ -97,7 +109,6 @@ namespace SocketClient
             //{                
             //    c.Send(itembyte, itembyte.Length, SocketFlags.None);
             //}
-
             //string recvStr = "";
             //byte[] recvBytes = new byte[1024];
             //int bytes;
