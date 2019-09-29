@@ -35,7 +35,7 @@ namespace socketServer
         {
             string getDate = DateTime.Now.Date.ToString("yyyyMMdd");
             Console.WriteLine($"获取到的日期是{getDate}");
-            string folderName = String.Format($"{getDate},socket");
+            string folderName = String.Format($"{getDate}socket");
             Console.WriteLine($"生成的文件名为{folderName}");
             string path = Path.Combine(directory, folderName);
             var existsFolder = Directory.Exists(path);
@@ -46,7 +46,8 @@ namespace socketServer
             }
             else
             {
-                return Directory.GetDirectoryRoot(path);
+                Console.WriteLine("文件夹已存在，不用创建直接返回路径{0}",path);
+                return path;
             }
         }
         /// <summary>

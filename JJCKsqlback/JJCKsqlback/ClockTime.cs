@@ -17,26 +17,28 @@ namespace JJCKsqlback
         ///</summary>
         private RunTimming runTime = new RunTimming();
         private LogFile logFile = new LogFile();
-        public void TimeCompare(SQLshell shell)//传入委托，自动备份方法在判断时间
+        public void TimeCompare(SQLshell shell,int runhour)//传入委托，自动备份方法在判断时间
         {
             DateTime localtime = DateTime.Now;
             int hournow = localtime.Hour;
             int minuteNow = localtime.Minute;
             int seconNow = localtime.Second;
-            int sethour = 03;
-            int setmin = 00;
+            int sethour = runhour;
+            //int setmin = 00;
+            int setmin = 30;
             int setsec = 00;
             if (hournow==sethour&&minuteNow==setmin&&seconNow==setsec)
             {
                                
-                Console.WriteLine("数据库正在备份中。。。。。");
+                //Console.WriteLine("数据库正在备份中。。。。。");
+                Console.WriteLine("数据库文件正在发送中。。。。。");
                 shell();
             }
             else
             {
 
                 Console.WriteLine("当前时间：{0}",localtime.ToString("yyyy-MM-dd HH:mm:ss"));
-                Console.WriteLine($"数据库备份程序运行的时间{sethour}:{setmin}:{setsec}");
+                Console.WriteLine($"数据库备份发送程序运行的时间{sethour}:{setmin}:{setsec}");
                 Thread.Sleep(100);
                 Console.Clear();
             }
@@ -111,7 +113,7 @@ namespace JJCKsqlback
             return runTime;
         }
         /// <summary>
-        /// 设置程序员运行的间隔月份数
+        /// 设置程序运行的间隔月份数
         /// </summary>
         /// <param name="setPra"></param>
         /// <returns></returns>

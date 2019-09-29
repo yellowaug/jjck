@@ -100,8 +100,9 @@ namespace socketServer
             Console.WriteLine("接收文件大小数据完成");
 
             //文件写入的委托方法,开始接收文件数据包
-            var recvFolderPath = folderAction.Invoke(@"D:\testsock");
-
+            //var recvFolderPath = folderAction.Invoke(@"D:\testsock");
+            var recvFolderPath = folderAction.Invoke(@"D:\SocketDbFile");
+            
             Socket filePackRecv = s.Accept();
             for (int i = 0; i < int.Parse(recvStr); i++)
             {

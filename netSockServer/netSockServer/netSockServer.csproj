@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocketFileAction.cs" />
     <Compile Include="SocketServerAction.cs" />
+    <Compile Include="SocketSQLAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

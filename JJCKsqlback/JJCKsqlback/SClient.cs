@@ -37,6 +37,7 @@ namespace JJCKsqlback
             sendFileCount.Send(packFilecount, packFilecount.Length, 0);
             sendFileCount.Close();
             Console.WriteLine("文件个数发送完成");
+            #region 旧功能
             //for (int i = 0; i < filepackInfos.FileName.Count; i++)
             //{
             //    发送文件名
@@ -55,6 +56,7 @@ namespace JJCKsqlback
             //    Console.WriteLine($"文件发送{sendPer * 100}%");
             //}
             //}
+            #endregion
             Socket sendFileName = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Console.WriteLine("发送文件名连接中......");
             sendFileName.Connect(iPEnd);
@@ -78,6 +80,7 @@ namespace JJCKsqlback
             }
             Console.WriteLine("发送文件大小信息完成");
             sendFileSize.Close();
+            #region 旧功能
             //byte[] packCount = new ASCIIEncoding().GetBytes(fileInfos.Count.ToString());
             //c.Send(packCount, packCount.Length, 0);
 
@@ -89,6 +92,8 @@ namespace JJCKsqlback
             //    float sendPer = (float)i / (float)filepackInfos.FilePackList.Count;
             //    Console.WriteLine($"文件发送{sendPer * 100}%");
             //}
+            #endregion
+
             Socket sendFilePack = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             sendFilePack.Connect(iPEnd);
             foreach (var itemfilePack in filepackInfos.FilePackList)
@@ -105,6 +110,7 @@ namespace JJCKsqlback
             }
             sendFilePack.Close();
             Console.WriteLine("发送数据包完成");
+            #region 旧功能
             //foreach (var itembyte in fileInfos)
             //{                
             //    c.Send(itembyte, itembyte.Length, SocketFlags.None);
@@ -116,7 +122,29 @@ namespace JJCKsqlback
             //recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
             //Console.WriteLine($"client get message{recvStr}");
             //c.Close();
+            #endregion
 
+
+        }
+    }
+    public class RunSclient
+    {
+        public void Runclient()
+        {
+            IFolder folderAction = new FolderAction();
+            ISockEumFiles eumFiles = new FolderAction();
+            IReadFile read = new FolderAction();
+            //var floderPath = folderAction.CreateFolderPath(@"E:\DataBase_AutoBak");//读取数据库文件的路径
+            var floderPath = folderAction.CreateFolderPath(@"F:\DataBase_AutoBak");//读取数据库文件的路径
+            Console.WriteLine("生产的文件路径{0}", floderPath);
+            var socketfilePath = eumFiles.EumFile(floderPath);
+            foreach (var item in socketfilePath)
+            {
+                Console.WriteLine("获取到的文件名称{0}", item.FullName);
+            }
+            var socketfilePack = read.ReadFile(socketfilePath);
+            SClient client = new SClient();
+            client.Client(socketfilePack, new HostInfo { Port = 2000, ServerHost = "10.12.2.9" });
         }
     }
 }

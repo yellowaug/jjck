@@ -1,0 +1,6 @@
+E:\jjck\netSockServer\netSockServer\bin\Release\netSockServer.exe.config
+E:\jjck\netSockServer\netSockServer\bin\Release\netSockServer.exe
+E:\jjck\netSockServer\netSockServer\bin\Release\netSockServer.pdb
+E:\jjck\netSockServer\netSockServer\obj\Release\netSockServer.csproj.CoreCompileInputs.cache
+E:\jjck\netSockServer\netSockServer\obj\Release\netSockServer.exe
+E:\jjck\netSockServer\netSockServer\obj\Release\netSockServer.pdb
