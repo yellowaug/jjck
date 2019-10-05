@@ -1,0 +1,6 @@
+D:\Csharp\SocketServerReCode\SocketServerReCode\bin\Debug\SocketServerReCode.exe
+D:\Csharp\SocketServerReCode\SocketServerReCode\bin\Debug\SocketServerReCode.pdb
+D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.csproj.CoreCompileInputs.cache
+D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.exe
+D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.pdb
+D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.csprojAssemblyReference.cache

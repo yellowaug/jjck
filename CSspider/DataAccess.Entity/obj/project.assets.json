@@ -186,11 +186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+      "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
       "projectName": "DataAccess.Entity",
-      "projectPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
+      "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
+      "outputPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
