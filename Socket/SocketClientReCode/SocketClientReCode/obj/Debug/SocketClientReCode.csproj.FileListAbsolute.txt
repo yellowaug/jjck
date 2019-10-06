@@ -1,0 +1,6 @@
+D:\Csharp\SocketClientReCode\SocketClientReCode\bin\Debug\SocketClientReCode.exe
+D:\Csharp\SocketClientReCode\SocketClientReCode\bin\Debug\SocketClientReCode.pdb
+D:\Csharp\SocketClientReCode\SocketClientReCode\obj\Debug\SocketClientReCode.csprojAssemblyReference.cache
+D:\Csharp\SocketClientReCode\SocketClientReCode\obj\Debug\SocketClientReCode.csproj.CoreCompileInputs.cache
+D:\Csharp\SocketClientReCode\SocketClientReCode\obj\Debug\SocketClientReCode.exe
+D:\Csharp\SocketClientReCode\SocketClientReCode\obj\Debug\SocketClientReCode.pdb
