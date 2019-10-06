@@ -98,17 +98,17 @@ namespace SocketServerReCode
                 var fileStearm = File.OpenRead(itemfile.FullName);
                 Console.WriteLine("现在读取的是{0}\t文件大小{1}",itemfile.FullName,itemfile.Length);
 
-                int packLength = (int)itemfile.Length % 65536;
+                long packLength = (long)itemfile.Length % 65536;
                 Console.WriteLine($"求得的余数是{packLength}");
                 if (packLength>0&&packLength<1)
                 {
-                    byte[] dataPack = new byte[(int)itemfile.Length];
+                    byte[] dataPack = new byte[(long)itemfile.Length];
                     fileStearm.Read(dataPack, 0, dataPack.Length);
                     action.Invoke(socket,dataPack);//调用socket发送数据的委托
                 }
                 else if (packLength==0)
                 {
-                    int dataPackCount = (int)itemfile.Length / 65536;
+                    long dataPackCount = itemfile.Length / 65536;
                     for (int i = 0; i < dataPackCount; i++)
                     {
                         byte[] dataPack = new byte[65536];
@@ -118,7 +118,7 @@ namespace SocketServerReCode
                 }
                 else if (packLength!=0&&packLength>1)
                 {
-                    int dataPackCount = (int)itemfile.Length / 65536;
+                    long dataPackCount = itemfile.Length / 65536;
                     Console.WriteLine("发送文件循环的次数为{0}",dataPackCount);
                     for (int i = 0; i < dataPackCount; i++)
                     {

@@ -4,3 +4,8 @@ D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.csp
 D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.exe
 D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.pdb
 D:\Csharp\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.csprojAssemblyReference.cache
+E:\jjck\Socket\SocketServerReCode\SocketServerReCode\bin\Debug\SocketServerReCode.exe
+E:\jjck\Socket\SocketServerReCode\SocketServerReCode\bin\Debug\SocketServerReCode.pdb
+E:\jjck\Socket\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.csproj.CoreCompileInputs.cache
+E:\jjck\Socket\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.exe
+E:\jjck\Socket\SocketServerReCode\SocketServerReCode\obj\Debug\SocketServerReCode.pdb

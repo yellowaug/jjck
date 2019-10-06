@@ -13,7 +13,7 @@ namespace SocketServerReCode
             var socketServer = SocketServer.ConfigSocket(2500, "0.0.0.0", 50);
 
 
-            SocketFolderAction folderAction = new SocketFolderAction(@"D:\sqlbak");
+            SocketFolderAction folderAction = new SocketFolderAction(@"F:\testsendFile");
             string folderPath=folderAction.GenerateFolderPath();
             var fileList=folderAction.EnumFile(folderPath);
 
