@@ -25,7 +25,7 @@ namespace JJCKsqlback
             int seconNow = localtime.Second;
             int sethour = runhour;
             //int setmin = 00;
-            int setmin = 30;
+            int setmin = 44;
             int setsec = 00;
             if (hournow==sethour&&minuteNow==setmin&&seconNow==setsec)
             {

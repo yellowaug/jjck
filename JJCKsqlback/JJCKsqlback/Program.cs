@@ -45,14 +45,15 @@ namespace JJCKsqlback
             //action.DataBaseRevert();
             #endregion
             #region 这段代码是SOCKET客户端获取文件，发送文件的代码，每天凌晨4点执行
-            ClockTime RunSockClient = new ClockTime();
+            //ClockTime RunSockClient = new ClockTime();
             RunSclient run = new RunSclient();
-            SQLshell Socketshell = run.Runclient;
-            while (true)
-            {
-                //RunSockClient.TimeCompare(Socketshell, 4);
-                RunSockClient.TimeCompare(Socketshell, 17);
-            }
+            run.Runclient();
+            //SQLshell Socketshell = run.Runclient;
+            //while (true)
+            //{
+            //    //RunSockClient.TimeCompare(Socketshell, 4);
+            //    RunSockClient.TimeCompare(Socketshell, 9);
+            //}
 
             #endregion
             //Console.ReadKey();

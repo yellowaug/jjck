@@ -134,8 +134,9 @@ namespace JJCKsqlback
             IFolder folderAction = new FolderAction();
             ISockEumFiles eumFiles = new FolderAction();
             IReadFile read = new FolderAction();
-            //var floderPath = folderAction.CreateFolderPath(@"E:\DataBase_AutoBak");//读取数据库文件的路径
-            var floderPath = folderAction.CreateFolderPath(@"F:\DataBase_AutoBak");//读取数据库文件的路径
+
+            var floderPath = folderAction.CreateFolderPath(@"E:\DataBase_AutoBak");//读取数据库文件的路径
+            //var floderPath = folderAction.CreateFolderPath(@"F:\DataBase_AutoBak");//读取数据库文件的路径
             Console.WriteLine("生产的文件路径{0}", floderPath);
             var socketfilePath = eumFiles.EumFile(floderPath);
             foreach (var item in socketfilePath)
@@ -144,7 +145,7 @@ namespace JJCKsqlback
             }
             var socketfilePack = read.ReadFile(socketfilePath);
             SClient client = new SClient();
-            client.Client(socketfilePack, new HostInfo { Port = 2000, ServerHost = "10.12.2.9" });
+            client.Client(socketfilePack, new HostInfo { Port = 2000, ServerHost = "10.12.2.13" });
         }
     }
 }
