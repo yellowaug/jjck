@@ -1,0 +1,5 @@
+F:\sharpdemo\FTPClient\FTPClient\bin\Debug\FTPClient.exe
+F:\sharpdemo\FTPClient\FTPClient\bin\Debug\FTPClient.pdb
+F:\sharpdemo\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.CoreCompileInputs.cache
+F:\sharpdemo\FTPClient\FTPClient\obj\Debug\FTPClient.exe
+F:\sharpdemo\FTPClient\FTPClient\obj\Debug\FTPClient.pdb
