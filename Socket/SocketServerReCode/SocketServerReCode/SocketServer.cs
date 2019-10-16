@@ -37,6 +37,7 @@ namespace SocketServerReCode
             IPAddress ip = IPAddress.Parse(hostip);
             IPEndPoint iPEnd = new IPEndPoint(ip, port);
             Socket socketobj = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socketobj.SendTimeout = 0;
             Console.WriteLine("等待客户端进行连接");
             socketobj.Bind(iPEnd);
             socketobj.Listen(listnum);

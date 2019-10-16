@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace SocketClientReCode
 {
@@ -32,7 +33,7 @@ namespace SocketClientReCode
             recvFileCount.Close();
 
             List<string> FileSizeList = new List<string>();
-
+            List<string> FileNameList = new List<string>();
             for (int i = 0; i < int.Parse(recvStr)*2; i++)
             {
                 Socket recvFileName = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -52,31 +53,34 @@ namespace SocketClientReCode
                 }
                 else
                 {
+                    FileNameList.Add(recvName);
                     Console.WriteLine("客户端要接收的文件名：{0}", recvName);
                 }
                 recvFileName.Close();
             }
 
-
-            foreach (var item in FileSizeList)
+            for (int n = 0; n < FileSizeList.Count; n++)
+            //foreach (var item in FileSizeList)
             {
-                Console.WriteLine("文件大小为{0}",long.Parse(item));
-                int filesizeCount =(int)long.Parse(item) % 65536;
+                Console.WriteLine("文件大小为{0}",long.Parse(FileSizeList[n]));
+                int filesizeCount =(int)long.Parse(FileSizeList[n]) % 65536;
                 Console.WriteLine("余数为{0}",filesizeCount);
+                string recvfilePath = Path.Combine(FolderFullPath, FileNameList[n]);
                 if (filesizeCount == 0)
                 {
-                    for (int i = 0; i < (int)long.Parse(item) / 65536; i++)
+
+                    for (int i = 0; i < long.Parse(FileSizeList[n]) / 65536; i++)
                     {
                         byte[] recvPackFile = new byte[65536];
                         Socket recvFilepack = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                         Console.WriteLine("正在连接到服务端。。");
                         recvFilepack.Connect(iPEnd);
                         int recvLog=recvFilepack.Receive(recvPackFile, recvPackFile.Length, 0);
-                        WriteToFileAction.Invoke(recvPackFile, FolderFullPath);
+                        WriteToFileAction.Invoke(recvPackFile, recvfilePath);
                         if (recvLog>0)
                         {
                             Console.WriteLine("接收标识{0}",recvLog);
-                            Console.WriteLine("文件接收{0}%", (i / (int)long.Parse(item)) * 100);
+                            Console.WriteLine("文件接收{0}%", (i / long.Parse(FileSizeList[n])) * 100);
                         }
                         else
                         {
@@ -87,12 +91,12 @@ namespace SocketClientReCode
                 }
                 else if (filesizeCount > 0 && filesizeCount < 1)
                 {
-                    byte[] recvPackFile = new byte[int.Parse(item)];
+                    byte[] recvPackFile = new byte[int.Parse(FileSizeList[n])];
                     Socket recvFilepack = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     Console.WriteLine("正在连接到服务端。。");
                     recvFilepack.Connect(iPEnd);
                     int recvLog = recvFilepack.Receive(recvPackFile, recvPackFile.Length, 0);
-                    WriteToFileAction.Invoke(recvPackFile, FolderFullPath);
+                    WriteToFileAction.Invoke(recvPackFile, recvfilePath);
                     if (recvLog > 0)
                     {
                         Console.WriteLine("数据包接收成功");
@@ -105,21 +109,21 @@ namespace SocketClientReCode
                 }
                 else if (filesizeCount != 0 && filesizeCount > 1)
                 {
-                    Console.WriteLine("接收数据包的循环次数{0}", (int)long.Parse(item) / 65536);
-                    //Console.WriteLine(Int64.Parse(item) % 65536);
-                    for (int i = 0; i < (int)long.Parse(item) / 65536; i++)
+                    Console.WriteLine("接收数据包的循环次数{0}", long.Parse(FileSizeList[n]) / 65536);
+                    //Console.WriteLine(Int64.Parse(FileSizeList[n]) % 65536);
+                    for (int i = 0; i < long.Parse(FileSizeList[n]) / 65536; i++)
                     {
                         byte[] recvPackFile = new byte[65536];
                         Socket recvFilepack = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                         Console.WriteLine("正在连接到服务端。。");
                         recvFilepack.Connect(iPEnd);
                         int recvLog = recvFilepack.Receive(recvPackFile, recvPackFile.Length, 0);
-                        WriteToFileAction.Invoke(recvPackFile, FolderFullPath);
+                        WriteToFileAction.Invoke(recvPackFile, recvfilePath);
                         if (recvLog > 0)
                         {
                             Console.WriteLine("接收标识{0}", recvLog);
                             Console.WriteLine(i);
-                            //Console.WriteLine("文件接收{0}%", (i / 65536) * 100);
+                            Console.WriteLine("文件接收{0}%", (i / long.Parse(FileSizeList[n]) / 65536) * 100);
                         }
                         else
                         {
@@ -134,7 +138,7 @@ namespace SocketClientReCode
                     Console.WriteLine("正在连接到服务端。。");
                     recvLastFilepack.Connect(iPEnd);
                     int recvLastLog = recvLastFilepack.Receive(recvLastPackFile, recvLastPackFile.Length, 0);
-                    WriteToFileAction.Invoke(recvLastPackFile, FolderFullPath);
+                    WriteToFileAction.Invoke(recvLastPackFile, recvfilePath);
                     if (recvLastLog>0)
                     {
                         Console.WriteLine("最后一个数据包接收成功");

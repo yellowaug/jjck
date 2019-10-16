@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-
+using System.Threading;
 namespace JJCKsqlback
 {
     /// <summary>
@@ -52,6 +52,7 @@ namespace JJCKsqlback
             Console.WriteLine($"获取到的日期是{getDate}");
             string folderName = String.Format($"{getDate}T030000");
             Console.WriteLine($"生成的文件名为{folderName}");
+            Thread.Sleep(5000);
             string path = Path.Combine(diskPath, folderName);
             var existsFolder = Directory.Exists(path);
             if (existsFolder==true)

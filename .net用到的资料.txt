@@ -43,8 +43,12 @@ c# windows api ODBC驱动的API调用 https://docs.microsoft.com/zh-cn/dotnet/ap
 数据库事务的说明
 https://www.cnblogs.com/edisonchou/p/6129717.html#ch1
 
+<<<<<<< HEAD
 ABP入门系列目录——学习Abp框架之实操演练
 https://www.jianshu.com/p/a6e9ace79345
 
 ABP框架中文文档
+=======
+asp.net ABP框架中文文档
+>>>>>>> 297df92137819616ed62c5dd0be1ab2ec11df410
 https://www.cnblogs.com/kid1412/p/5971838.html

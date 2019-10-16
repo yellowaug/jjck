@@ -12,9 +12,9 @@ namespace SocketClientReCode
             SocketFolderAction folderAction = new SocketFolderAction();
             SocketFileAction fileAction = new SocketFileAction();
             Action<byte[], string> writeAction = fileAction.WriteToFile;
-            //string folderFullName=folderAction.CreateFolder(@"G:\");
-            SocketClient socketClient = new SocketClient(2500, "127.0.0.1");
-            socketClient.ClientAction(writeAction, @"G:\");
+            string folderFullName = folderAction.CreateFolder(@"D:\SocketDbFile");
+            SocketClient socketClient = new SocketClient(2500, "10.11.11.39");
+            socketClient.ClientAction(writeAction, folderFullName);
             Console.Read();
         }
     }
