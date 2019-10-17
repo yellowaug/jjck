@@ -45,3 +45,6 @@ https://www.cnblogs.com/edisonchou/p/6129717.html#ch1
 
 asp.net ABP框架中文文档
 https://www.cnblogs.com/kid1412/p/5971838.html
+
+asp.net ABP api接口文档说明
+https://aspnetboilerplate.com/api-docs/html/T_Abp_Application_Services_Dto_EntityDto.htm
