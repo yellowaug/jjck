@@ -2,7 +2,7 @@
 如果当你不小心登录了，需要在浏览器里面删除你的COOKE中的TOKEN否则会提示认证失败
 ===========================================================================================
 ABP框架应用服务层模板
-
+===========================================================================================
 IAPPNameAppService.cs接口文件文件
     public interface IAPPNameAppService:IApplicationService
     {
@@ -50,6 +50,33 @@ APPNameAppService.cs类文件
             NameListDto nameList = new NameListDto() { Id = testname.Id, DescName = testname.DescName, ProName = testname.ProName };
             return nameList;
         }
+===========================================================================================
+object转string序列号
+deviceInfo 是需要转换的对象名称
+Public class DeviceInfo()
+{
+    int Id
+}
+DeviceInfo deviceInfo =new DeviceInfo();
+string requestJson = JsonConvert.SerializeObject(deviceInfo);
+string 转成json对象
+JObject jObject = (JObject)JsonConvert.DeserializeObject(requestJson);
+===========================================================================================
+ABP框架使用缓存及Redis
 
-ABP把新的Class添加依赖注入
+使用Abp.Runtime.Caching.Redis 这个包，安装的时候要对应Redis的版本
+
+在应用层的xxxApplicationModule.cs文件中的
+ [DependsOn(typeof(LearnAbpCoreModule), typeof(AbpAutoMapperModule),//其他依赖..
+ typeof(AbpRedisCacheModule))]
+        public override void PreInitialize()
+        {
+            //其他配置
+            Configuration.Caching.UseRedis();
+        }
+web.config文件配置信息
+<add name="Abp.Redis.Cache" connectionString="localhost"/>
+你也可以添加配置到appSettings来设置Redis数据库的Id。如：
+<add key="Abp.Redis.Cache.DatabaseId" value="2"/>
+
 
