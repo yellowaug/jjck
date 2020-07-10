@@ -3096,23 +3096,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\zzq\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+      "projectUniqueName": "F:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
       "projectName": "DataAccess.EntityFramework",
-      "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
+      "projectPath": "F:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj",
+      "packagesPath": "C:\\Users\\zzq\\.nuget\\packages\\",
+      "outputPath": "F:\\jjck\\CSspider\\DataAccess.EntityFramework\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zzq\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3125,8 +3121,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-              "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+            "F:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+              "projectPath": "F:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
             }
           }
         }
@@ -3156,10 +3152,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

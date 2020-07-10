@@ -1,0 +1,5 @@
+E:\jjck\FTPClient\FTPClient\bin\Release\FTPClient.exe
+E:\jjck\FTPClient\FTPClient\bin\Release\FTPClient.pdb
+E:\jjck\FTPClient\FTPClient\obj\Release\FTPClient.csprojAssemblyReference.cache
+E:\jjck\FTPClient\FTPClient\obj\Release\FTPClient.exe
+E:\jjck\FTPClient\FTPClient\obj\Release\FTPClient.pdb

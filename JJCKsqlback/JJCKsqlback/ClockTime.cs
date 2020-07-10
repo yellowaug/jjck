@@ -25,7 +25,7 @@ namespace JJCKsqlback
             int seconNow = localtime.Second;
             int sethour = runhour;
             //int setmin = 00;
-            int setmin = 44;
+            int setmin = 00;
             int setsec = 00;
             if (hournow==sethour&&minuteNow==setmin&&seconNow==setsec)
             {
@@ -38,7 +38,7 @@ namespace JJCKsqlback
             {
 
                 Console.WriteLine("当前时间：{0}",localtime.ToString("yyyy-MM-dd HH:mm:ss"));
-                Console.WriteLine($"数据库备份发送程序运行的时间{sethour}:{setmin}:{setsec}");
+                Console.WriteLine($"数据库备份程序运行的时间{sethour}:{setmin}:{setsec}");
                 Thread.Sleep(100);
                 Console.Clear();
             }
@@ -56,9 +56,8 @@ namespace JJCKsqlback
             int seconNow = localtime.Second;
             if (dayNow == runTime.RunDay && hournow == 00 && minuteNow == 00 && seconNow == 00)
             {               
-                SetRunDay(4);
+                SetRunDay(2);//设置天数，这里还有一个坑
                 shell();
-
             }
             else
             {
@@ -94,10 +93,12 @@ namespace JJCKsqlback
         /// <returns></returns>
         public RunTimming SetRunDay(int setPra)
         {
-            DateTime localtime = DateTime.Now;            
+            DateTime localtime = DateTime.Now;
+            //获取当月最后一天
+            DateTime mounthlastday = DateTime.Now.AddDays(1 - DateTime.Now.Day).Date.AddMonths(1).AddSeconds(-1);
             int dayNow = localtime.Day;
             int runDay = dayNow + setPra - 1;
-            if (runDay<=30)
+            if (runDay<= mounthlastday.Day)
             {
                 runTime.RunDay = runDay;
                 Console.WriteLine($"运行日期{runDay}");
@@ -105,7 +106,7 @@ namespace JJCKsqlback
             }
             else
             {
-                runDay = (dayNow + setPra - 1) - 30;
+                runDay = (dayNow + setPra - 1) - mounthlastday.Day;
                 runTime.RunDay = runDay;
                 Console.WriteLine($"运行日期{runDay}");
             }

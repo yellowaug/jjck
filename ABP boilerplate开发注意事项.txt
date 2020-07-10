@@ -1,0 +1,55 @@
+注意：使用ABP框架开发时，初始化框架的登录页面切勿登录进去，否则无法调用Create方法，无法插入数据
+如果当你不小心登录了，需要在浏览器里面删除你的COOKE中的TOKEN否则会提示认证失败
+===========================================================================================
+ABP框架应用服务层模板
+
+IAPPNameAppService.cs接口文件文件
+    public interface IAPPNameAppService:IApplicationService
+    {
+        /// <summary>
+        /// 连接温度传感器
+        /// </summary>
+        TemperatureJsonDataDto ConnectionTemperatureSensor(UserInput userInput);
+    }
+
+APPNameAppService.cs类文件
+ /// <summary>
+    /// 测试的接口
+    /// </summary>
+    public class TestNameAppService : ITestNameAppService
+    {
+        private readonly IRepository<TestName> _testNameRepository;
+        public TestNameAppService(IRepository<TestName> testNameRepository)
+        {
+            _testNameRepository = testNameRepository;
+        }
+        /// <summary>
+        /// 插入数据
+        /// </summary>
+        /// <returns></returns>
+        public NameListInputDto CreateName(NameListInputDto input)
+        {
+
+
+            TestName testName = new TestName()
+            {
+                DescName = input.DescName,
+                ProName = input.ProName
+            };
+            _testNameRepository.Insert(testName);
+            return input;
+
+        }
+        /// <summary>
+        /// 获取用户名
+        /// </summary>
+        /// <returns></returns>
+        public NameListDto GetName()
+        {
+            var testname=_testNameRepository.FirstOrDefault(1);
+            NameListDto nameList = new NameListDto() { Id = testname.Id, DescName = testname.DescName, ProName = testname.ProName };
+            return nameList;
+        }
+
+ABP把新的Class添加依赖注入
+

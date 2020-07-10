@@ -5717,23 +5717,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\zzq\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+      "projectUniqueName": "F:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
       "projectName": "CSspider",
-      "projectPath": "H:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "H:\\jjck\\CSspider\\CSspider\\obj\\",
+      "projectPath": "F:\\jjck\\CSspider\\CSspider\\CSspider.csproj",
+      "packagesPath": "C:\\Users\\zzq\\.nuget\\packages\\",
+      "outputPath": "F:\\jjck\\CSspider\\CSspider\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zzq\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5746,11 +5742,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
-              "projectPath": "H:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
+            "F:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj": {
+              "projectPath": "F:\\jjck\\CSspider\\DataAccess.EntityFramework\\DataAccess.EntityFramework.csproj"
             },
-            "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
-              "projectPath": "H:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
+            "F:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj": {
+              "projectPath": "F:\\jjck\\CSspider\\DataAccess.Entity\\DataAccess.Entity.csproj"
             }
           }
         }
@@ -5780,10 +5776,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
