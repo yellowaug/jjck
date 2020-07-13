@@ -61,9 +61,20 @@ DeviceInfo deviceInfo =new DeviceInfo();
 string requestJson = JsonConvert.SerializeObject(deviceInfo);
 string 转成json对象
 JObject jObject = (JObject)JsonConvert.DeserializeObject(requestJson);
+json字段解析
+   DeviceInfo deviceInfo = new DeviceInfo()
+   {
+        userApiKey = jObject["keyname1"].ToString(),
+        flagCode = jObject["keyname2"].ToString(),
+        deviceNo = "10QMYX581V5VY8UX"
+   };
+   多级解析
+        string temperation = jObject["sensorLastDataList"][0]["value"].ToString();
+        string humidity  = jObject["sensorLastDataList"][1]["value"].ToString();
+        string update = jObject["sensorLastDataList"][0]["updateTime"].ToString();
 ===========================================================================================
 ABP框架使用缓存及Redis
-
+安装  Abp.RedisCache这个包
 使用Abp.Runtime.Caching.Redis 这个包，安装的时候要对应Redis的版本
 
 在应用层的xxxApplicationModule.cs文件中的
@@ -78,5 +89,15 @@ web.config文件配置信息
 <add name="Abp.Redis.Cache" connectionString="localhost"/>
 你也可以添加配置到appSettings来设置Redis数据库的Id。如：
 <add key="Abp.Redis.Cache.DatabaseId" value="2"/>
+
+===========================================================================================
+取消异步等待的写法
+_=task.funcation()
+===========================================================================================
+集成Hangfire
+
+ABP的.net版本似乎无法使用redis，只能使用Ms sql
+集成使用redis 无法实现是因为无法使用Hangfire.pro.redis这个第三方的包
+
 
 
