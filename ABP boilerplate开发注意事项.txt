@@ -100,4 +100,60 @@ ABP的.net版本似乎无法使用redis，只能使用Ms sql
 集成使用redis 无法实现是因为无法使用Hangfire.pro.redis这个第三方的包
 
 
+===========================================================================================
+Abp AutoMap使用
 
+现在官方推荐的是使用IObjectMapper 接口进行依赖注入，然后调用
+实例：
+使用映射：
+
+public class UserAppService : ApplicationService
+{
+    private readonly IRepository<User> _userRepository;
+    private readonly IObjectMapper _objectMapper;
+
+    public UserAppService(IRepository<User> userRepository, IObjectMapper objectMapper)
+    {
+        _userRepository = userRepository;
+        _objectMapper = objectMapper;
+    }
+
+    public void CreateUser(CreateUserInput input)
+    {
+        var user = _objectMapper.Map<User>(input);
+        _userRepository.Insert(user);
+    }
+}
+
+创建映射：
+实例
+[AutoMapTo(typeof(User))]
+public class CreateUserInput
+{
+    public string Name { get; set; }
+
+    public string Surname { get; set; }
+
+    public string EmailAddress { get; set; }
+
+    public string Password { get; set; }
+}
+
+自定义规则：
+
+假设在映射的时候，我们想忽略Password属性，并使 EmailAddress 属性映射到 User 的Email 属性。我们可以像下面一样来实现映射关系：
+[DependsOn(typeof(AbpAutoMapperModule))]
+public class MyModule : AbpModule
+{
+    public override void PreInitialize()
+    {
+        Configuration.Modules.AbpAutoMapper().Configurators.Add(config =>
+        {
+            config.CreateMap<CreateUserInput, User>()
+                  .ForMember(u => u.Password, options => options.Ignore())
+                  .ForMember(u => u.Email, options => options.MapFrom(input => input.EmailAddress));
+        });
+    }
+}
+===========================================================================================
+AutoMapper文档上的其他方法在IDE使用的时候提示已经过时，且在后面将会被移除。
