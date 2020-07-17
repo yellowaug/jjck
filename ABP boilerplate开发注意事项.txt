@@ -1,6 +1,24 @@
 注意：使用ABP框架开发时，初始化框架的登录页面切勿登录进去，否则无法调用Create方法，无法插入数据
 如果当你不小心登录了，需要在浏览器里面删除你的COOKE中的TOKEN否则会提示认证失败
 ===========================================================================================
+ABP框架第一次连接数据库时的注意事项
+===========================================================================================
+XXXMoudel.EntityFramework文件夹---Migrations文件夹---Configuration.cs文件中的
+    public Configuration()
+    {
+        AutomaticMigrationsEnabled = flash;
+        ContextKey = "TestMoudel";
+    }
+    将flash改成True这样在输入Update-database时就不会报错了
+
+   在命名空间 namespace TestMoudel.EntityFramework 下的 IDbset写法
+   public class TestMoudelDbContext : AbpZeroDbContext<Tenant, Role, User>
+    {
+        public IDbSet<CacheTables> CacheTables { get; set; }
+        .......
+    }
+
+===========================================================================================
 ABP框架应用服务层模板
 ===========================================================================================
 IAPPNameAppService.cs接口文件文件
@@ -157,3 +175,25 @@ public class MyModule : AbpModule
 }
 ===========================================================================================
 AutoMapper文档上的其他方法在IDE使用的时候提示已经过时，且在后面将会被移除。
+
+Dapper 拓展使用案例
+文档：https://github.com/ABPFrameWorkGroup/AbpDocument2Chinese/blob/master/Markdown/Abp/9.5ABP%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%B1%82-%E9%9B%86%E6%88%90Dapper.md
+如果你按照文档来也可以，但是我发现，其实并不需要在Initialize()方法中注册，直接挂载依赖模块即可
+[DependsOn(typeof(TestMoudelCoreModule), typeof(AbpAutoMapperModule), typeof(AbpRedisCacheModule),
+typeof(AbpEntityFrameworkCoreModule), typeof(AbpDapperModule))]
+public class TestMoudelApplicationModule : AbpModule
+{
+        public override void PreInitialize()
+        {
+            ..
+        }
+
+        public override void Initialize()
+        {
+            IocManager.RegisterAssemblyByConvention(typeof(TestMoudelApplicationModule).GetAssembly());
+            DapperExtensions.DapperExtensions.SetMappingAssemblies(new List<Assembly> { typeof(CacheTablesMapper).GetAssembly() });
+        }
+
+}
+
+
