@@ -1,5 +1,15 @@
 docker 安装redis
 ============================================================================================
+docker 常用
+============================================================================================
+进入容器：
+执行docker exec -it ef /bin/bash进入到nginx容器内部，
+exec  命令代表附着到运行着的容器内部
+-it 是 -i 与 -t两个参数合并写法，-i -t 标志着为我们指定的容器创建了TTY并捕捉了STDIN
+ef 是我们要进入的容器Id
+/bin/bash 指定了执行命令的shell
+
+============================================================================================
 教程URL:https://blog.csdn.net/u010358168/article/details/97143703
 ============================================================================================
 docker run --name my_redis -p 6379:6379 -v /home/redisdocker/data:/data -v /home/redisdocker/config/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf
@@ -13,6 +23,26 @@ redis-server --appendonly yes： 在容器执行redis-server启动命令，并�
 ============================================================================================
 docker 部署Nginx
 ============================================================================================
+下载：
+docker pull nginx
+运行
+docker run --name nginx-test -p 8080:80 -d nginx
+进入容器：
+docker exec -it ed9f02ba30fc /bin/bash
+复制容器的内容到宿主机：
+docker cp ed9f02ba30fc:/etc/nginx/nginx.conf ./        
+dokcer cp ed9f02ba30fc:/etc/nginx/conf.d/default.conf ./conf/
+
+cp 命令代表复制
+ef是我们nginx容器的ID,/etc/nginx/nginx.conf 是容器内部nginx.conf 路径
+
+挂载外部文件夹到容器内：
+docker run -d --name testnginx -p 8080:80 \
+-v /home/nginxdocker/config/nginx.conf:/etc/nginx/nginx.conf \
+-v /home/nginxdocker/logs:/var/log/nginx \
+-v /home/nginxdocker/html:/usr/share/nginx/html \
+-v /home/nginxdocker/conf.d:/etc/nginx/conf.d \
+--privileged=true nginx
 
 
 ============================================================================================
