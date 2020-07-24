@@ -1,0 +1,86 @@
+创建实体，建表：
+https://docs.abp.io/zh-Hans/abp/latest/Tutorials/Part-1?UI=MVC
+按流程创建实体，添加到DbContext后，需要注意一定要在
+=================================================================================================
+在 Acme.BookStore.EntityFrameworkCore 项目中打开 BookStoreDbContextModelCreatingExtensions.cs 文件,
+并将以下代码添加到 ConfigureBookStore 方法的末尾以配置Book实体:（BooK是你要创建映射的实体的名称）
+builder.Entity<Book>(b =>
+{
+    b.ToTable(BookStoreConsts.DbTablePrefix + "Book", BookStoreConsts.DbSchema);
+    b.ConfigureByConvention(); //auto configure for the base class props
+    b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+});
+=================================================================================================
+如果不加这段代码，运行迁移命令则无法正确添加表到数据库
+
+
+Abp vNext 测试模块代编写代码实例
+=================================================================================================
+使用ABP-CLI创建项目：
+abp new Acme.TestBook --template app --database-provider ef --ui mvc --mobile none
+其中Acme.BookStore是项目名称，用到的时候自行替换。
+数据库连接字符串：
+.Web 项目下 appsettings.json 文件中的 链接字符串
+---------------------------------------------------------------------------
+"ConnectionStrings": {
+  "Default": "Server=localhost;Database=BookStore;Trusted_Connection=True"
+}
+---------------------------------------------------------------------------
+.DbMigrator项目有自己的appsettings.json. 因此,如果你更改了上面的连接字符串,则还应更改此字符串.
+使用EF Core Update-Database命令
+选择.EntityFrameworkCore.DbMigrations项目作为默认项目并运行Update-Database命令:
+
+=================================================================================================
+在.Application.Test命名空间中加入测试类，命名方式为XXXAppService_Test
+以BookAppService_Test例子说明
+
+public class BookAppService_Test:BookStoreApplicationTestBase
+    {
+        //注入应用服务接口 IBookAppService
+        private readonly IBookAppService bookAppService;
+        public BookAppService_Test()
+        {
+            this.bookAppService = GetRequiredService<IBookAppService>();
+        }
+        //下面是你要测试的方法，其中CreateUpdateBookDto为自定义的DTO
+        [Fact]
+        public async Task Should_Get_List_Of_Books()
+        {
+            var result = await this.bookAppService.GetListAsync(new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto());
+            result.TotalCount.ShouldBeGreaterThan(0);
+            result.Items.ShouldContain(x => x.Name == "test book 1");
+        }
+        [Fact]
+        public async Task Should_Create_Book()
+        {
+            var result = await this.bookAppService.CreateAsync(
+                new CreateUpdateBookDto { Name = "New test book 42", 
+                    Price = 20, 
+                    PublishDate = DateTime.Now, 
+                    Type = BookType.ScienceFiction }
+                );
+            result.Id.ShouldNotBe(Guid.Empty);
+            result.Name.ShouldBe("New test book 42");
+        }
+        [Fact]
+        public async Task Should_Create_Book_WithOut_Name()
+        {
+            var exception = await Assert.ThrowsAsync<Volo.Abp.Validation.AbpValidationException>(
+                async () =>
+                {
+                    await this.bookAppService.CreateAsync(
+                        new CreateUpdateBookDto
+                        {
+                            Name = "",
+                            Price = 10,
+                            PublishDate = DateTime.Now,
+                            Type = BookType.ScienceFiction
+                        }
+                        );
+                }
+                );
+            exception.ValidationErrors.ShouldContain(err => err.MemberNames.Any(mem => mem == "Name"));
+        }
+
+
+    }
