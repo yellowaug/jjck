@@ -44,6 +44,7 @@ public class BookAppService_Test:BookStoreApplicationTestBase
         }
         //下面是你要测试的方法，其中CreateUpdateBookDto为自定义的DTO
         [Fact]
+        //测试getlist方法
         public async Task Should_Get_List_Of_Books()
         {
             var result = await this.bookAppService.GetListAsync(new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto());
@@ -51,6 +52,7 @@ public class BookAppService_Test:BookStoreApplicationTestBase
             result.Items.ShouldContain(x => x.Name == "test book 1");
         }
         [Fact]
+        //测试Create方法
         public async Task Should_Create_Book()
         {
             var result = await this.bookAppService.CreateAsync(
@@ -63,6 +65,7 @@ public class BookAppService_Test:BookStoreApplicationTestBase
             result.Name.ShouldBe("New test book 42");
         }
         [Fact]
+        //测试Create异常方法
         public async Task Should_Create_Book_WithOut_Name()
         {
             var exception = await Assert.ThrowsAsync<Volo.Abp.Validation.AbpValidationException>(
@@ -81,6 +84,53 @@ public class BookAppService_Test:BookStoreApplicationTestBase
                 );
             exception.ValidationErrors.ShouldContain(err => err.MemberNames.Any(mem => mem == "Name"));
         }
-
-
     }
+
+
+=================================================================================================
+一些特性
+=================================================================================================
+例如模型 Movie
+    public class Movie
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime ReleaseDate { get; set; }
+        public string Genre { get; set; }
+        public decimal Price { get; set; }
+    }
+    [DataType(DataType.Date)]：DataType 属性指定数据的类型（日期）。 通过此特性：
+    用户无需在数据字段中输入时间信息。
+    仅显示日期，而非时间信息。
+=================================================================================================
+Abp vnext CURD示例中的坑
+后端代码如教程所写即可，Index.cshtml页面在教程中的写法有坑，缺少本地化的引用，修正后的代码如下
+@page
+@model Acme.BookStore.Web.Pages.Books.IndexModel
+//多了下面这一行
+@inject Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer<Acme.BookStore.Localization.BookStoreResource> L
+//多了上面这一行
+@section scripts
+{
+    <abp-script src="/Pages/Books/index.js" />
+}
+<abp-card>
+    <abp-card_header>
+        <h2>@L["Book"]</h2>
+    </abp-card_header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="BookTable">
+            <thead>
+                <tr>
+                    <th>@L["Name"]</th>
+                    <th>@L["Type"]</th>
+                    <th>@L["PublishDate"]</th>
+                    <th>@L["Price"]</th>
+                    <th>@L["CreationTime"]</th>
+                </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>
