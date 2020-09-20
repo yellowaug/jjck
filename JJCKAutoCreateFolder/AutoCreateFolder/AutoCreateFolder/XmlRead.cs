@@ -12,7 +12,7 @@ namespace AutoCreateFolder
         public string ReadXmlPath()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"..\..\PathConfig.xml");
+            doc.Load(@"PathConfig.xml");
             XmlNode xnroot = doc.SelectSingleNode("path");
             XmlNodeList xmlist = xnroot.ChildNodes;
             return xmlist.Item(0).InnerText;

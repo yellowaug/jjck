@@ -1,0 +1,6 @@
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\bin\Release\AutoCreateFolder.exe.config
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\bin\Release\AutoCreateFolder.exe
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\bin\Release\AutoCreateFolder.pdb
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\obj\Release\AutoCreateFolder.csproj.CoreCompileInputs.cache
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\obj\Release\AutoCreateFolder.exe
+F:\jjck\JJCKAutoCreateFolder\AutoCreateFolder\AutoCreateFolder\obj\Release\AutoCreateFolder.pdb

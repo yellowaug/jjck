@@ -14,7 +14,6 @@ namespace AutoCreateFolder
             string folderPath= xml.ReadXmlPath();
             CreateFolder createFolder = new CreateFolder();
             createFolder.CreateFolderAction(folderPath);
-            Console.ReadKey();
         }
     }
 }
