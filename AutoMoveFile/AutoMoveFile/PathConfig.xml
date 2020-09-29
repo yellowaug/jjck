@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--直接在path节点下添加root标签-->
+<path>
+	<root>G:\testEnv</root>
+	<!--<root1></root1>-->
+</path>
+

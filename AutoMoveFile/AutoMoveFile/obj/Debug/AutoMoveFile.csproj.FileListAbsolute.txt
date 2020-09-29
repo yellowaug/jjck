@@ -1,0 +1,7 @@
+F:\jjck\AutoMoveFile\AutoMoveFile\bin\Debug\AutoMoveFile.exe.config
+F:\jjck\AutoMoveFile\AutoMoveFile\bin\Debug\AutoMoveFile.exe
+F:\jjck\AutoMoveFile\AutoMoveFile\bin\Debug\AutoMoveFile.pdb
+F:\jjck\AutoMoveFile\AutoMoveFile\obj\Debug\AutoMoveFile.csprojAssemblyReference.cache
+F:\jjck\AutoMoveFile\AutoMoveFile\obj\Debug\AutoMoveFile.csproj.CoreCompileInputs.cache
+F:\jjck\AutoMoveFile\AutoMoveFile\obj\Debug\AutoMoveFile.exe
+F:\jjck\AutoMoveFile\AutoMoveFile\obj\Debug\AutoMoveFile.pdb

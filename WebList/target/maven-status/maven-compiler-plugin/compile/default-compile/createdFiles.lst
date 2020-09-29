@@ -1,0 +1,10 @@
+org\testpack\SomeServer.class
+org\Result\ListResult.class
+org\weblist\Sms.class
+org\newWebList\WebListServer.class
+org\weblist\App.class
+org\SmsAct\SmsServer.class
+org\testpack\MyLog.class
+org\newWebList\IWebListServer.class
+org\testpack\ISomeServer.class
+org\weblist\ListWebSite.class

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="httpGet" class="org.apache.http.client.methods.HttpGet">
+        <constructor-arg name="uri" value="http://www.baidu.com"/>
+    </bean>
+    <bean id="listWeb" class="org.weblist.ListWebSite"/>
+    <bean id="listgc" class="org.weblist.ListWebSite">
+        <constructor-arg name="uri" value="https://gc.muniuma.cn/"/>
+    </bean>
+    <bean id="listpt" class="org.weblist.ListWebSite">
+        <constructor-arg name="uri" value="https://pt.muniuma.cn/"/>
+    </bean>
+    <bean id="listjg" class="org.weblist.ListWebSite">
+        <constructor-arg name="uri" value="https://jg.muniuma.cn/"/>
+    </bean>
+    <bean id="listGcApi" class="org.weblist.ListWebSite">
+        <constructor-arg name="apiUri" value="https://gcapi.muniuma.cn/api/Account/Authenticate"/>
+        <constructor-arg name="account" value="18978849681"/>
+    </bean>
+    <bean id="listPtApi" class="org.weblist.ListWebSite">
+        <constructor-arg name="apiUri" value="https://ptapi.muniuma.cn/api/Account/Authenticate"/>
+        <constructor-arg name="account" value="zengzhangquan"/>
+    </bean>
+    <bean id="listJgApi" class="org.weblist.ListWebSite">
+        <constructor-arg name="apiUri" value="https://jgapi.muniuma.cn/api/Account/AuthenticateByPwd"/>
+        <constructor-arg name="account" value="18978849681"/>
+    </bean>
+    <bean id="sms" class="org.weblist.Sms"/>
+
+
+
+
+    <aop:aspectj-autoproxy/>
+
+
+</beans>
