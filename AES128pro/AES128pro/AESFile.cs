@@ -12,7 +12,7 @@ namespace AES128pro
     {
         private void AESDecrypt(byte[] key,byte[] filecontext,string path)
         {
-            double total = 0;
+            //double total = 0;
             RijndaelManaged rDel = new RijndaelManaged();
             rDel.Key = key;
             //rDel.Mode = CipherMode.ECB;
@@ -21,16 +21,17 @@ namespace AES128pro
             byte[] resultArray = cTransform.TransformFinalBlock(filecontext, 0, filecontext.Length);
             FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write);
             BinaryWriter binaryWriter = new BinaryWriter(file);
-            int size = (filecontext.Length / 1024) / 1024;
-            for (int i = 0; i < resultArray.Length; i++)
-            {
-                total = (i / 1024) / 1024;
-                binaryWriter.Write(resultArray[i]);
-                Console.WriteLine("文件大小"+size+"MB"+"进度"+total+"MB");
-                //Console.WriteLine(i);
-                //Console.WriteLine(total);
+            //int size = (filecontext.Length / 1024) / 1024;
+            binaryWriter.Write(resultArray);
+            //for (int i = 0; i < resultArray.Length; i++)
+            //{
+            //    total = (i / 1024) / 1024;
+            //    binaryWriter.Write(resultArray[i]);
+            //    Console.WriteLine("文件大小"+size+"MB"+"进度"+total+"MB");
+            //    //Console.WriteLine(i);
+            //    //Console.WriteLine(total);
                 
-            }
+            //}
             //foreach (var contextitem in resultArray)
             //{               
             //    total = (resultArray.Length-1)/100;
