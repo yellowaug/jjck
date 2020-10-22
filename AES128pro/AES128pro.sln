@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AES128pro", "AES128pro\AES128pro.csproj", "{EA4A850E-B2EA-48E6-BE3E-F1A55B594C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA4A850E-B2EA-48E6-BE3E-F1A55B594C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4A850E-B2EA-48E6-BE3E-F1A55B594C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4A850E-B2EA-48E6-BE3E-F1A55B594C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4A850E-B2EA-48E6-BE3E-F1A55B594C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A262A16-A98E-499D-9429-2FF0C51F350E}
+	EndGlobalSection
+EndGlobal
